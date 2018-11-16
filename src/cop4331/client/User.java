@@ -9,6 +9,10 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String toString(){
+        return "username: " + userName + ", password: " + password;
+    }
+
     public String getUserName(){
         return userName;
     }
