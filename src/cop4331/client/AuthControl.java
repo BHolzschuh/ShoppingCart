@@ -18,7 +18,7 @@ public class AuthControl {
         RegisterView register = new RegisterView();
 
         JButton buttonOne = new JButton("Register");
-       // login.add(buttonOne,0,2);
+        login.add(buttonOne,0,2);
 
         JButton buttonTwo = new JButton("Submit");
         register.add(buttonTwo,0,3);

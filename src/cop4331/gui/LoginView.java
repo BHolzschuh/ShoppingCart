@@ -1,50 +1,76 @@
 package cop4331.gui;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class LoginView {
 
-    private JPanel loginPanel;
+    private JPanel logicPanel = new JPanel();
+    private JLabel welcomePanel = new JLabel();
+    private JPanel formPanel = new JPanel();
+
+    private GridBagConstraints gridC = new GridBagConstraints();
 
     public LoginView(){
-        loginPanel = new JPanel();
-        loginPanel.setLayout(new BorderLayout());
 
-        // Title panel
-        JPanel titlePanel = new JPanel();
-        titlePanel.add(new JLabel("Login"));
+        //logicPanel setup
+        logicPanel.setLayout(new BoxLayout(logicPanel,BoxLayout.PAGE_AXIS));
+        JLabel label = new JLabel();
+        logicPanel.add(label);
+        JLabel greetIn = new JLabel("Hey there. Welcome to the shop. Where you can be you.");
 
-        // Label panel
-        JPanel labelPanel = new JPanel();
-        labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.PAGE_AXIS));
-        labelPanel.add(new JLabel("Username"));
-        labelPanel.add(new JLabel("Password"));
 
-        // Form panel
-        JPanel formPanel = new JPanel();
-        formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.PAGE_AXIS));
-        JTextField username = new JTextField();
-        JTextField password = new JTextField();
-        username.setPreferredSize(new Dimension(200, 30));
-        password.setPreferredSize(new Dimension(200, 30));
-        formPanel.add(username);
-        formPanel.add(password);
+        //formPanel setup
+        GridBagLayout gl = new GridBagLayout();
+        formPanel.setLayout(gl);
+        gridC.fill = GridBagConstraints.HORIZONTAL;
+        gridC.insets = new Insets(7,7,7,7);
 
-        // Body panel
-        JPanel bodyPanel = new JPanel();
-        bodyPanel.setLayout(new BoxLayout(bodyPanel, BoxLayout.LINE_AXIS));
-        bodyPanel.add(labelPanel);
-        bodyPanel.add(formPanel);
 
-        loginPanel.add(titlePanel, BorderLayout.NORTH);
-        loginPanel.add(bodyPanel, BorderLayout.CENTER);
-        loginPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        gridC.gridx = 0;
+        gridC.gridy = 0;
+
+        JLabel usr = new JLabel("Username: ");
+        formPanel.add(usr,gridC);
+
+        gridC.gridx = 1;
+        gridC.gridy = 0;
+
+        JTextField usrForm = new JTextField();
+        usrForm.setColumns(10);
+        formPanel.add(usrForm,gridC);
+
+        gridC.gridx = 0;
+        gridC.gridy = 1;
+        JLabel pwd = new JLabel("Password:             ");
+        formPanel.add(pwd,gridC);
+
+        gridC.gridx = 1;
+        gridC.gridy = 1;
+        JPasswordField pwdForm = new JPasswordField();
+        pwdForm.setColumns(10);
+        formPanel.add(pwdForm,gridC);
+
+        gridC.gridx = 1;
+        gridC.gridy = 2;
+        JButton loginButton = new JButton("Login");
+        formPanel.add(loginButton,gridC);
+
+        //logicPanel.add(greetIn);
+        logicPanel.add(formPanel);
+
     }
-
 
     public JPanel getView(){
-        return loginPanel;
+        return logicPanel;
     }
+
+    public void add(JComponent j, int x, int y){
+
+        gridC.gridx = x;
+        gridC.gridy = y;
+        formPanel.add(j,gridC);
+
+    }
+
 }

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbff2f12-7870-4b23-9b25-ad2def42a9f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/ShoppingCart/cop4331/client/AuthControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cop4331/client/AuthControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ShoppingCart/app.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ShoppingCart/app.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ShoppingCart/cop4331/gui/LoginView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ShoppingCart/cop4331/gui/LoginView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ShoppingCart/cop4331/gui/RegisterView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ShoppingCart/cop4331/gui/RegisterView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cop4331/gui/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cop4331/gui/LoginView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cop4331/gui/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cop4331/gui/RegisterView.java" afterDir="false" />
@@ -207,7 +212,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-2" />
     <option name="y" value="-2" />
     <option name="width" value="1390" />
@@ -265,7 +270,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542413999881" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542414417270" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
@@ -326,12 +331,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541009952999</updated>
-      <workItem from="1542412373114" duration="1607000" />
+      <workItem from="1542412373114" duration="1874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1607000" />
+    <option name="totallyTimeSpent" value="1874000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
