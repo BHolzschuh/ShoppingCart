@@ -9,19 +9,22 @@ import java.util.Scanner;
 
 public class app {
     public static void main(String[] args) {
+
+        AuthControl start = new AuthControl();
+
         /*
         Shopper brian = new Shopper("brian", "holzschuh");
         Vendor ben = new Vendor("ben", "shapiro");
         Hashtable<String, User> users = new Hashtable();
         users.put(brian.getUserName(), brian);
         users.put(ben.getUserName(), ben);
-        */
+        *//*
         try {
             /*
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("test.dat"));
             out.writeObject(users);
             out.close();
-            */
+
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("test.dat"));
             Hashtable<String, User> readUsers = (Hashtable<String, User>) in.readObject();
             in.close();
@@ -48,5 +51,9 @@ public class app {
         } catch (Exception e) {
             System.out.println("Problem with the file");
         }
+        */
+
+
     }
-}
+    }
+

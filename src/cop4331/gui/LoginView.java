@@ -43,7 +43,8 @@ public class LoginView {
         loginPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
     }
 
-    public JPanel getPanel(){
+
+    public JPanel getView(){
         return loginPanel;
     }
 }
