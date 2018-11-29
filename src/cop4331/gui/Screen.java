@@ -52,8 +52,14 @@ public class Screen {
         cl.show(panelCont,"L");
     }
 
-    public JTextField getUserForm() { return loginView.getUserForm(); }
+    public JTextField getLoginUserForm() { return loginView.getUserForm(); }
 
-    public JTextField getPwdForm() { return loginView.getPwdForm(); }
+    public JTextField getLoginPwdForm() { return loginView.getPwdForm(); }
+
+    public JTextField getRegisterUserForm() { return registerView.getUserForm(); }
+
+    public JTextField getRegisterPwdForm() { return registerView.getPwdForm(); }
+
+    public JTextField getRegisterPwdConfirmForm() { return registerView.getPwdConfirmForm(); }
 
 }

@@ -7,12 +7,16 @@ public class RegisterView {
 
     GridBagLayout gl = new GridBagLayout();
     private GridBagConstraints gridC = new GridBagConstraints();
-    private JPanel registerPanel = new JPanel();
+    private JPanel registerPanel;
     private JButton submitButton;
+    private JTextField usrForm;
+    private JTextField pwdForm;
+    private JTextField pwdConfirmForm;
 
     public RegisterView(){
 
         GridBagLayout gl = new GridBagLayout();
+        registerPanel = new JPanel();
         registerPanel.setLayout(gl);
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
@@ -22,7 +26,7 @@ public class RegisterView {
         add(usr, 0, 0);
 
         // Username Field
-        JTextField usrForm = new JTextField();
+        usrForm = new JTextField();
         usrForm.setColumns(10);
         add(usrForm, 1, 0);
 
@@ -31,7 +35,7 @@ public class RegisterView {
         add(pwd, 0, 1);
 
         // Password Field
-        JPasswordField pwdForm = new JPasswordField();
+        pwdForm = new JPasswordField();
         pwdForm.setColumns(10);
         add(pwdForm, 1, 1);
 
@@ -40,7 +44,7 @@ public class RegisterView {
         add(pwdConfirmTF, 0, 2);
 
         // Confirm Password Field
-        JPasswordField pwdConfirmForm = new JPasswordField();
+        pwdConfirmForm = new JPasswordField();
         pwdConfirmForm.setColumns(10);
         add(pwdConfirmForm, 1, 2);
 
@@ -49,17 +53,19 @@ public class RegisterView {
         add(submitButton, 0, 3);
     }
 
-   public JPanel getView(){
-        return registerPanel;
-    }
+    public JPanel getView(){ return registerPanel; }
 
     public JButton getSubmitButton() { return submitButton; }
 
-   public void add(JComponent j, int x, int y){
+    public JTextField getUserForm() { return usrForm; }
 
+    public JTextField getPwdForm() { return pwdForm; }
+
+    public JTextField getPwdConfirmForm() { return pwdConfirmForm; }
+
+    public void add(JComponent j, int x, int y){
         gridC.gridx = x;
         gridC.gridy = y;
         registerPanel.add(j,gridC);
     }
-
 }

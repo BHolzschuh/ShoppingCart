@@ -2,11 +2,8 @@ package cop4331.client;
 
 import cop4331.gui.Screen;
 
-import javax.swing.*;
-
 public class AuthControl {
 
-    private JPanel panelCont = new JPanel();
     private Screen screen;
 
     public AuthControl(Screen sc){
@@ -14,8 +11,15 @@ public class AuthControl {
 
         //control current view
         sc.getRegisterButton().addActionListener(e -> sc.ShowRegister());
-        sc.getSubmitButton().addActionListener(e -> sc.SubmitLogin());
-        sc.getLoginButton().addActionListener(e -> System.out.println(sc.getUserForm().getText() + " " + sc.getPwdForm().getText()));
+        sc.getSubmitButton().addActionListener(e -> {
+            System.out.println(sc.getRegisterUserForm().getText() + " " +
+                    sc.getRegisterPwdForm().getText() + " " +
+                    sc.getRegisterPwdConfirmForm().getText());
+            sc.SubmitLogin();
+        });
+        sc.getLoginButton().addActionListener(e ->
+                System.out.println(sc.getLoginUserForm().getText() + " " + sc.getLoginPwdForm().getText())
+        );
     }
 
 
