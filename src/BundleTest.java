@@ -1,4 +1,5 @@
 import cop4331.client.Bundle;
+import cop4331.client.DiscountedItem;
 import cop4331.client.Product;
 
 public class BundleTest {
@@ -10,6 +11,11 @@ public class BundleTest {
         bundle.add(nails);
         System.out.println(bundle.getName());
         System.out.println(bundle.getPrice());
-        System.out.println(bundle.toString());
+        System.out.println(bundle.toString() + "\n");
+
+        DiscountedItem di = new DiscountedItem(bundle, 50);
+        System.out.println(di.getName());
+        System.out.println(di.getPrice());
+        System.out.println(di.toString());
     }
 }
