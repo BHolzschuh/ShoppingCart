@@ -36,6 +36,10 @@ public class Screen {
         return loginView.getRegisterButton();
     }
 
+    public JButton getLoginButton(){
+        return loginView.getLoginButton();
+    }
+
     public JButton getSubmitButton(){
         return registerView.getSubmitButton();
     }
@@ -47,5 +51,9 @@ public class Screen {
     public void SubmitLogin(){
         cl.show(panelCont,"L");
     }
+
+    public JTextField getUserForm() { return loginView.getUserForm(); }
+
+    public JTextField getPwdForm() { return loginView.getPwdForm(); }
 
 }

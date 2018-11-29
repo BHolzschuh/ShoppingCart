@@ -15,6 +15,7 @@ public class AuthControl {
         //control current view
         sc.getRegisterButton().addActionListener(e -> sc.ShowRegister());
         sc.getSubmitButton().addActionListener(e -> sc.SubmitLogin());
+        sc.getLoginButton().addActionListener(e -> System.out.println(sc.getUserForm().getText() + " " + sc.getPwdForm().getText()));
     }
 
 
