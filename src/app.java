@@ -1,4 +1,7 @@
 import cop4331.client.*;
+import cop4331.gui.LoginView;
+import cop4331.gui.RegisterView;
+import cop4331.gui.Screen;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,7 +13,8 @@ import java.util.Scanner;
 public class app {
     public static void main(String[] args) {
 
-        AuthControl start = new AuthControl();
+        Screen sc = new Screen();
+        AuthControl start = new AuthControl(sc);
 
         /*
         Shopper brian = new Shopper("brian", "holzschuh");
@@ -20,17 +24,17 @@ public class app {
         users.put(ben.getUserName(), ben);
         */
 
-        AuthModel model = new AuthModel();
-        model.getUsers();
-        model.findUser();
+        //AuthModel model = new AuthModel();
+        //model.getUsers();
+        //model.findUser();
 
 
-/*
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("test.dat"));
-            out.writeObject(users);
-            out.close();
-*/
+        /*
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("test.dat"));
+        out.writeObject(users);
+        out.close();
+        */
 
 
     }
-    }
+}
