@@ -4,7 +4,7 @@ import cop4331.gui.Screen;
 
 public class AuthControl {
 
-    private Screen screen;
+    private final Screen screen;
 
     public AuthControl(Screen sc){
         screen = sc;
