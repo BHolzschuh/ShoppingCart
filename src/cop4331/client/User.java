@@ -2,7 +2,7 @@ package cop4331.client;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public abstract class User implements Serializable {
 
     public User(String userName, String password){
         this.userName = userName;

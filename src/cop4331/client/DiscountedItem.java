@@ -1,6 +1,7 @@
 package cop4331.client;
 
 /**
+ * @author Brian Holzschuh
  * A decorator for an item that applies a discount
  */
 public class DiscountedItem implements Item {

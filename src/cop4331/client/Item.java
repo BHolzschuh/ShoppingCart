@@ -1,6 +1,7 @@
 package cop4331.client;
 
 /**
+ * @author Brian Holzschuh
  * Items in a shopping system
  */
 public interface Item {

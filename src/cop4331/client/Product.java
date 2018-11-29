@@ -1,5 +1,9 @@
 package cop4331.client;
 
+/**
+ * @author Brian Holzschuh
+ * Products in a shopping system
+ */
 public class Product implements Item {
 
     public Product(String name, double price, String description){

@@ -2,6 +2,10 @@ package cop4331.client;
 
 import java.util.ArrayList;
 
+/**
+ * @author Brian Holzschuh
+ * Bundles of products in shopping system
+ */
 public class Bundle implements Item {
 
     public Bundle() { items = new ArrayList<>(); }
