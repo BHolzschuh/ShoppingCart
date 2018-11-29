@@ -1,27 +1,31 @@
 package cop4331.client;
 
-public class Item {
+/**
+ * Items in a shopping system
+ */
+public interface Item {
+    /**
+     * Gets the name of the item
+     * @return the name
+     */
+    String getName();
 
-    public Item(String name, double cost, int quantity){
-        this.name = name;
-        this.cost = cost;
-        this.quantity = quantity;
-    }
+    /**
+     * Gets the price of the item
+     * @return the price
+     */
+    double getPrice();
 
-    public String getName(){
-        return name;
-    }
+    /**
+     * Gets the description of the item
+     * @return the description
+     */
+    String toString();
 
-    public double getCost(){
-        return cost;
-    }
-
-    public int getQuantity(){
-        return quantity;
-    }
-
-    private String name;
-    private double cost;
-    private int quantity;
+    /**
+     * Gets the quantity of the item
+     * @return the quantity
+     */
+    int getQuantity();
 
 }
