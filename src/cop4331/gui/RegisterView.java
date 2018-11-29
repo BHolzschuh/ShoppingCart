@@ -8,6 +8,7 @@ public class RegisterView {
     GridBagLayout gl = new GridBagLayout();
     private GridBagConstraints gridC = new GridBagConstraints();
     private JPanel registerPanel = new JPanel();
+    private JButton submitButton;
 
     public RegisterView(){
 
@@ -16,46 +17,43 @@ public class RegisterView {
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 
-        gridC.gridx = 0;
-        gridC.gridy = 0;
-
+        // Username Label
         JLabel usr = new JLabel(" Set username: ");
-        registerPanel.add(usr,gridC);
+        add(usr, 0, 0);
 
-        gridC.gridx = 1;
-        gridC.gridy = 0;
-
+        // Username Field
         JTextField usrForm = new JTextField();
         usrForm.setColumns(10);
-        registerPanel.add(usrForm,gridC);
+        add(usrForm, 1, 0);
 
-        gridC.gridx = 0;
-        gridC.gridy = 1;
+        // Password Label
         JLabel pwd = new JLabel("Set password: ");
+        add(pwd, 0, 1);
 
-        registerPanel.add(pwd,gridC);
-
-        gridC.gridx = 1;
-        gridC.gridy = 1;
+        // Password Field
         JPasswordField pwdForm = new JPasswordField();
         pwdForm.setColumns(10);
-        registerPanel.add(pwdForm,gridC);
+        add(pwdForm, 1, 1);
 
-        gridC.gridx = 0;
-        gridC.gridy = 2;
+        // Confirm Password Label
         JLabel pwdConfirmTF = new JLabel("Confirm password");
-        registerPanel.add(pwdConfirmTF,gridC);
+        add(pwdConfirmTF, 0, 2);
 
-        gridC.gridx = 1;
-        gridC.gridy = 2;
+        // Confirm Password Field
         JPasswordField pwdConfirmForm = new JPasswordField();
         pwdConfirmForm.setColumns(10);
-        registerPanel.add(pwdConfirmForm,gridC);
+        add(pwdConfirmForm, 1, 2);
+
+        // Submit Button
+        submitButton = new JButton("Submit");
+        add(submitButton, 0, 3);
     }
 
    public JPanel getView(){
         return registerPanel;
     }
+
+    public JButton getSubmitButton() { return submitButton; }
 
    public void add(JComponent j, int x, int y){
 

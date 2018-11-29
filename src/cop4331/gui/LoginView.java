@@ -5,18 +5,20 @@ import java.awt.*;
 
 public class LoginView {
 
-    private JPanel logicPanel = new JPanel();
+    private JPanel loginPanel = new JPanel();
     private JLabel welcomePanel = new JLabel();
     private JPanel formPanel = new JPanel();
+    private JButton registerButton;
+    private JButton loginButton;
 
     private GridBagConstraints gridC = new GridBagConstraints();
 
     public LoginView(){
 
         //logicPanel setup
-        logicPanel.setLayout(new BoxLayout(logicPanel,BoxLayout.PAGE_AXIS));
+        loginPanel.setLayout(new BoxLayout(loginPanel,BoxLayout.PAGE_AXIS));
         JLabel label = new JLabel();
-        logicPanel.add(label);
+        loginPanel.add(label);
         JLabel greetIn = new JLabel("Hey there. Welcome to the shop. Where you can be you.");
 
 
@@ -26,47 +28,46 @@ public class LoginView {
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 
-
-        gridC.gridx = 0;
-        gridC.gridy = 0;
-
+        // Username Label
         JLabel usr = new JLabel("Username: ");
-        formPanel.add(usr,gridC);
+        add(usr, 0, 0);
 
-        gridC.gridx = 1;
-        gridC.gridy = 0;
-
+        // Username Field
         JTextField usrForm = new JTextField();
         usrForm.setColumns(10);
-        formPanel.add(usrForm,gridC);
+        add(usrForm, 1, 0);
 
-        gridC.gridx = 0;
-        gridC.gridy = 1;
+        // Password Label
         JLabel pwd = new JLabel("Password:             ");
-        formPanel.add(pwd,gridC);
+        add(pwd, 0, 1);
 
-        gridC.gridx = 1;
-        gridC.gridy = 1;
+        // Password Field
         JPasswordField pwdForm = new JPasswordField();
         pwdForm.setColumns(10);
-        formPanel.add(pwdForm,gridC);
+        add(pwdForm, 1, 1);
 
-        gridC.gridx = 1;
-        gridC.gridy = 2;
-        JButton loginButton = new JButton("Login");
-        formPanel.add(loginButton,gridC);
+        // Register Button
+        registerButton = new JButton("Register");
+        add(registerButton, 0, 2);
+
+        // Login Button
+        loginButton = new JButton("Login");
+        add(loginButton, 1, 2);
 
         //logicPanel.add(greetIn);
-        logicPanel.add(formPanel);
+        loginPanel.add(formPanel);
 
     }
 
     public JPanel getView(){
-        return logicPanel;
+        return loginPanel;
     }
 
-    public void add(JComponent j, int x, int y){
+    public JButton getLoginButton() { return loginButton; }
 
+    public JButton getRegisterButton() { return  registerButton; }
+
+    private void add(JComponent j, int x, int y){
         gridC.gridx = x;
         gridC.gridy = y;
         formPanel.add(j,gridC);

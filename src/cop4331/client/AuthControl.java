@@ -17,11 +17,8 @@ public class AuthControl {
         LoginView login = new LoginView();
         RegisterView register = new RegisterView();
 
-        JButton buttonOne = new JButton("Register");
-        login.add(buttonOne,0,2);
-
-        JButton buttonTwo = new JButton("Submit");
-        register.add(buttonTwo,0,3);
+        JButton registerButton = login.getRegisterButton();
+        JButton submitButton = register.getSubmitButton();
 
         panelCont.setLayout(cl);
 
@@ -34,12 +31,12 @@ public class AuthControl {
         cl.show(panelCont,"L");
 
         //control current view
-        buttonOne.addActionListener(e -> cl.show(panelCont,"R"));
-        buttonTwo.addActionListener(e -> cl.show(panelCont,"L"));
+        registerButton.addActionListener(e -> cl.show(panelCont,"R"));
+        submitButton.addActionListener(e -> cl.show(panelCont,"L"));
 
         JFrame frame = new JFrame("Shopping Extravaganza");
         frame.add(panelCont);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
