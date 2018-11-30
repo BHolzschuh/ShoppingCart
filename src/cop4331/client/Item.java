@@ -1,10 +1,12 @@
 package cop4331.client;
 
+import java.io.Serializable;
+
 /**
  * @author Brian Holzschuh
  * Items in a shopping system
  */
-public interface Item {
+public interface Item extends Serializable {
     /**
      * Gets the name of the item
      * @return the name
