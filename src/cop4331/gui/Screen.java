@@ -8,19 +8,25 @@ public class Screen {
     private CardLayout cl;
     private LoginView loginView;
     private RegisterView registerView;
+    private ShopView shopView;
 
     public Screen(){
         loginView = new LoginView();
         registerView = new RegisterView();
+        shopView = new ShopView();
         panelCont = new JPanel();
         cl = new CardLayout();
 
         panelCont.setLayout(cl);
 
-        //L = Login Reference
-        //R = Register Reference
+        /*
+        L = Login Reference
+        R = Register Reference
+        S = Shop Reference
+        */
         panelCont.add(loginView.getView(),"L");
         panelCont.add(registerView.getView(),"R");
+        panelCont.add(shopView.getView(),"S");
 
         //view starts on Login
         cl.show(panelCont,"L");
@@ -40,16 +46,20 @@ public class Screen {
         return loginView.getLoginButton();
     }
 
-    public JButton getSubmitButton(){
+    public JButton getRegisterSubmitButton(){
         return registerView.getSubmitButton();
     }
 
-    public void ShowRegister(){
+    public void showRegister(){
         cl.show(panelCont,"R");
     }
 
-    public void SubmitLogin(){
+    public void showLogin(){
         cl.show(panelCont,"L");
+    }
+
+    public void showShop(){
+        cl.show(panelCont,"S");
     }
 
     public JTextField getLoginUserForm() { return loginView.getUserForm(); }

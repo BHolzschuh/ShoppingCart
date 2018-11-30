@@ -1,9 +1,6 @@
 package cop4331.client;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.ObjectInputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Hashtable;
 import java.util.Scanner;
 
@@ -12,50 +9,82 @@ public class AuthModel {
     private Hashtable<String, User> readUsers;
 
 
-    public AuthModel(){
+    public AuthModel() {
 
         try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("test.dat"));
+
+
+            Shopper brian = new Shopper("brian", "holzschuh");
+            Hashtable<String, User> hashy = new Hashtable<>();
+            hashy.put("brian",brian);
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("users.dat"));
+            out.writeObject(hashy);
+            out.close();
+
+
+
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("users.dat"));
             readUsers = (Hashtable<String, User>) in.readObject();
             in.close();
 
-        }catch (Exception e) {
-            System.out.println("Problem with the file");
+        }catch(FileNotFoundException e) {System.out.println("File not found.");
+        }catch (Exception e) { System.out.println("Problem with the file.");
         }
-
-
-
     }
 
 
-    public void getUsers(){System.out.println(readUsers);}
+    public void getUsers() {
+        System.out.println(readUsers);
+    }
 
-    public void findUser(){
+    public void findUser() {
 
         System.out.println("Check if user in system: ");
         Scanner input = new Scanner(System.in);
         User current = null;
         boolean notFound = true;
-        while(notFound){
+        while (notFound) {
             String username = input.next();
-            if(readUsers.containsKey(username)){
+            if (readUsers.containsKey(username)) {
                 System.out.println("Found a user");
                 current = readUsers.get(username);
                 notFound = false;
-            }
-            else{
+            } else {
                 System.out.println("No user");
             }
         }
         System.out.println(current);
 
     }
+
+    public void registerShopper(String name, String pw) {
+
+        Shopper customer = new Shopper(name, pw);
+        readUsers.put(customer.getUserName(), customer);
+
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("users.dat"));
+            out.writeObject(readUsers);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
+    public boolean authenticate(String name) {
+
+
+            if (readUsers.containsKey(name))
+                return true;
 
 
 
+        return false;
 
+    }
+
+}
 
 /*
     public void register(String name, String pw ){

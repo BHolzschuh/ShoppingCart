@@ -14,7 +14,8 @@ public class app {
     public static void main(String[] args) {
 
         Screen sc = new Screen();
-        AuthControl start = new AuthControl(sc);
+        AuthModel au = new AuthModel();
+        AuthControl start = new AuthControl(sc,au);
 
         /*
         Shopper brian = new Shopper("brian", "holzschuh");
@@ -24,9 +25,10 @@ public class app {
         users.put(ben.getUserName(), ben);
         */
 
-        //AuthModel model = new AuthModel();
-        //model.getUsers();
-        //model.findUser();
+
+       // AuthModel model = new AuthModel();
+       // model.getUsers();
+      //  model.findUser();
 
 
         /*
