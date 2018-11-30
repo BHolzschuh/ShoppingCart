@@ -1,6 +1,7 @@
 package cop4331.client;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Brian Holzschuh
@@ -8,9 +9,15 @@ import java.util.ArrayList;
  */
 public class Bundle implements Item {
 
-    public Bundle() { items = new ArrayList<>(); }
+    public Bundle(int quantity, Item...items) {
+        this.items = new ArrayList<>();
+        this.items.addAll(Arrays.asList(items));
+        this.quantity = quantity;
+    }
 
-    public void add(Item item) { items.add(item); }
+    public void add(Item...items) {
+        this.items.addAll(Arrays.asList(items));
+    }
 
     @Override
     public String getName() {
@@ -33,7 +40,12 @@ public class Bundle implements Item {
 
     @Override
     public int getQuantity() {
-        return 0;
+        return quantity;
+    }
+
+    @Override
+    public void increment() {
+        quantity++;
     }
 
     @Override
@@ -47,4 +59,5 @@ public class Bundle implements Item {
     }
 
     private ArrayList<Item> items;
+    private int quantity;
 }

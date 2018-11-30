@@ -31,4 +31,6 @@ public interface Item extends Serializable {
      */
     int getQuantity();
 
+    void increment();
+
 }
