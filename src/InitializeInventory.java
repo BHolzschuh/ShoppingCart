@@ -4,7 +4,7 @@ import java.io.*;
 
 public class InitializeInventory{
     public static void main(String[] args){
-        Vendor vendor = new Vendor("vendor1", "password", "OwlPatrol");
+        Vendor vendor = new Vendor("vendor1", "password", "OwlPatrol", "owl");
         Product hammer = new Product("Hammer", 5.00, "Great at nailing things", 3);
         Product nails = new Product("Nails", 3.20, "50 count of nails", 3);
         Product pickles = new Product("Pickles", 2.99, "Sweet and Sour", 5);
