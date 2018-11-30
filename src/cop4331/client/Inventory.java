@@ -1,12 +1,13 @@
 package cop4331.client;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Brian Holzschuh
  * Stores a list of products in the inventory using Singleton pattern
  */
-public class Inventory {
+public class Inventory implements Serializable {
 
     private static Inventory instance = null;
 
@@ -15,16 +16,6 @@ public class Inventory {
      */
     private Inventory(){
         inventoryList = new ArrayList<>();
-        Product hammer = new Product("Hammer", 5.00, "Great at nailing things");
-        Product nails = new Product("Nails", 3.20, "50 count of nails");
-        Bundle bundle = new Bundle();
-        bundle.add(hammer);
-        bundle.add(nails);
-        DiscountedItem dbundle = new DiscountedItem(bundle, 20);
-        inventoryList.add(new Product("Pickles", 4.50, "Nice and sour"));
-        inventoryList.add(hammer);
-        inventoryList.add(nails);
-        inventoryList.add(dbundle);
     }
 
     /**
