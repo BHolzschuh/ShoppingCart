@@ -1,5 +1,8 @@
 package cop4331.client;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * @author Brian Holzschuh
  * A decorator for an item that applies a discount
@@ -28,7 +31,10 @@ public class DiscountedItem implements Item {
 
     @Override
     public double getPrice() {
-        return item.getPrice() * (1 - discount / 100);
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.CEILING);
+        String value = df.format(item.getPrice() * (1 - discount / 100));
+        return Double.parseDouble(value);
     }
 
     @Override
