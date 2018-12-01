@@ -53,11 +53,6 @@ public class Inventory implements Serializable {
             System.out.println(item.getName() + " " + item.getQuantity());
             item.increment();
         }
-        System.out.println("After increment");
-        for(Item item: inventoryList){
-            System.out.println(item.getName() + " " + item.getQuantity());
-            item.increment();
-        }
     }
 
     private ArrayList<Item> inventoryList;

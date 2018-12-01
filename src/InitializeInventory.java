@@ -1,10 +1,13 @@
 import cop4331.client.*;
 
 import java.io.*;
+import java.util.Hashtable;
 
 public class InitializeInventory{
     public static void main(String[] args){
-        Vendor vendor = new Vendor("vendor1", "password", "OwlPatrol", "owl");
+        Vendor vendor = new Vendor("vendor", "password", "OwlPatrol", "owl");
+        Hashtable<String, User> users = new Hashtable<>();
+        users.put(vendor.getUserName(), vendor);
         Product hammer = new Product("Hammer", 5.00, "Great at nailing things", 3);
         Product nails = new Product("Nails", 3.20, "50 count of nails", 3);
         Product pickles = new Product("Pickles", 2.99, "Sweet and Sour", 5);
@@ -19,7 +22,7 @@ public class InitializeInventory{
         try {
 
             ObjectOutputStream out1 = new ObjectOutputStream(new FileOutputStream("users.dat"));
-            out1.writeObject(vendor);
+            out1.writeObject(users);
             out1.close();
 
             ObjectOutputStream out2 = new ObjectOutputStream(new FileOutputStream("inventory.dat"));
@@ -27,14 +30,14 @@ public class InitializeInventory{
             out2.close();
 
             ObjectInputStream in1 = new ObjectInputStream(new FileInputStream("users.dat"));
-            Vendor rvend = (Vendor) in1.readObject();
+            Hashtable<String, User> rusers = (Hashtable<String, User>) in1.readObject();
             in1.close();
 
             ObjectInputStream in2 = new ObjectInputStream(new FileInputStream("inventory.dat"));
             Inventory rinv = (Inventory) in2.readObject();
             in2.close();
 
-            System.out.println(rvend.getName());
+            System.out.println(rusers);
             rinv.printInv();
 
         } catch (Exception e){
