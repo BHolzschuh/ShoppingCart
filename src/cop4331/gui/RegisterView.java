@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class RegisterView {
 
-    GridBagLayout gl = new GridBagLayout();
     private GridBagConstraints gridC = new GridBagConstraints();
     private JPanel registerPanel;
     private JPanel gridPanel;
