@@ -1,5 +1,7 @@
 package cop4331.client;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +19,12 @@ public class Inventory implements Serializable {
      */
     private Inventory(){
         inventoryList = new ArrayList<>();
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("inventory.dat"));
+            inventoryList = (ArrayList<Item>) in.readObject();
+        } catch (Exception e){
+            System.out.println("Problem with the file.");
+        }
     }
 
     /**
@@ -71,6 +79,10 @@ public class Inventory implements Serializable {
             System.out.println(item.getName() + " " + item.getQuantity());
             item.increment();
         }
+    }
+
+    public ArrayList<Item> getInventoryList(){
+        return (ArrayList<Item>) inventoryList.clone();
     }
 
     private ArrayList<Item> inventoryList;

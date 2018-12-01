@@ -1,6 +1,8 @@
 import cop4331.client.*;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 
 public class InitializeInventory{
@@ -16,9 +18,8 @@ public class InitializeInventory{
         Product helmet = new Product("Helmet", 24.99, "To protect your noggin", 9);
         Product pump = new Product("Air Pump", 12.99, "To keep you going", 3);
         DiscountedItem dbundle2 = new DiscountedItem(new Bundle(1, bike, helmet, pump), 10, 2);
-        Inventory inventory = Inventory.getInstance();
-        inventory.addItems(hammer, nails, pickles, dbundle, bike, helmet, pump, dbundle2);
-
+        Item[] items = new Item[]{hammer, nails, pickles, bike, helmet, pump, dbundle, dbundle2};
+        ArrayList<Item> inventory = new ArrayList<>(Arrays.asList(items));
         try {
 
             ObjectOutputStream out1 = new ObjectOutputStream(new FileOutputStream("users.dat"));
@@ -29,16 +30,7 @@ public class InitializeInventory{
             out2.writeObject(inventory);
             out2.close();
 
-            ObjectInputStream in1 = new ObjectInputStream(new FileInputStream("users.dat"));
-            Hashtable<String, User> rusers = (Hashtable<String, User>) in1.readObject();
-            in1.close();
-
-            ObjectInputStream in2 = new ObjectInputStream(new FileInputStream("inventory.dat"));
-            Inventory rinv = (Inventory) in2.readObject();
-            in2.close();
-
-            System.out.println(rusers);
-            rinv.printInv();
+            System.out.println("Everything is initialized!");
 
         } catch (Exception e){
             System.out.println("IOException");

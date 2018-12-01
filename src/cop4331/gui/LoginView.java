@@ -5,25 +5,28 @@ import java.awt.*;
 
 public class LoginView {
 
-    private JPanel loginPanel = new JPanel();
-    private JPanel formPanel = new JPanel();
+    private JPanel loginPanel;
+    private JPanel formPanel;
     private JButton registerButton;
     private JButton loginButton;
     private JTextField usrForm;
     private JTextField pwdForm;
 
-    private GridBagConstraints gridC = new GridBagConstraints();
+    private GridBagConstraints gridC;
 
     public LoginView(){
 
-        //logicPanel setup
+        //loginPanel setup
+        loginPanel = new JPanel();
         loginPanel.setLayout(new BorderLayout());
         JLabel greetIn = new JLabel("Welcome to the shop, where you can be you");
         greetIn.setHorizontalAlignment(JLabel.CENTER);
         loginPanel.add(greetIn, BorderLayout.NORTH);
 
         //formPanel setup
+        formPanel = new JPanel();
         formPanel.setLayout(new GridBagLayout());
+        gridC = new GridBagConstraints();
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 

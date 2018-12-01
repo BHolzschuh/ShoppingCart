@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class RegisterView {
 
-    private GridBagConstraints gridC = new GridBagConstraints();
+    private GridBagConstraints gridC;
     private JPanel registerPanel;
     private JPanel gridPanel;
     private JButton backButton;
@@ -22,11 +22,12 @@ public class RegisterView {
 
         gridPanel = new JPanel();
         gridPanel.setLayout(new GridBagLayout());
+        gridC = new GridBagConstraints();
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 
         // Username Label
-        JLabel usr = new JLabel(" Set username: ");
+        JLabel usr = new JLabel("Set username: ");
         add(usr, 0, 0);
 
         // Username Field
