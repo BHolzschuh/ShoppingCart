@@ -28,6 +28,13 @@ public class Inventory implements Serializable {
         return instance;
     }
 
+    /**
+     *
+     * @param name
+     * @param price
+     * @param description
+     * @param quantity
+     */
     public void addItemForm(String name, double price, String description, int quantity){
         for(Item item: inventoryList){
             if(item.getName().equals(name)) {
@@ -40,14 +47,25 @@ public class Inventory implements Serializable {
         inventoryList.add(new Product(name, price, description, quantity));
     }
 
+    /**
+     *
+     * @param items
+     */
     public void addItems(Item...items){
         inventoryList.addAll(Arrays.asList(items));
     }
 
+    /**
+     *
+     * @param name
+     */
     public void removeItem(String name){
         inventoryList.removeIf(item -> item.getName().equals(name));
     }
 
+    /**
+     *
+     */
     public void printInv(){
         for(Item item: inventoryList){
             System.out.println(item.getName() + " " + item.getQuantity());
