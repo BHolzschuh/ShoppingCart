@@ -11,6 +11,9 @@ public class InventoryView {
 
     private JPanel invList;
     private JPanel vendorPanel;
+    private JButton reportButton;
+    private JButton updateButton;
+    private JButton addButton;
 
     public InventoryView(){
         vendorPanel = new JPanel();
@@ -22,20 +25,37 @@ public class InventoryView {
         Inventory inv = Inventory.getInstance();
         addRows(inv.getInventoryList());
 
-        JButton updateButton = new JButton("Update");
-        JButton addButton = new JButton("Add Item");
+        // Buttons
+        reportButton = new JButton("Report");
+        updateButton = new JButton("Update");
+        addButton = new JButton("Add Item");
 
+        // Buttons Panel
         JPanel buttons = new JPanel();
         buttons.setLayout(new FlowLayout());
+        buttons.add(reportButton);
         buttons.add(addButton);
         buttons.add(updateButton);
 
+        // Final panel adds
         vendorPanel.add(invList, BorderLayout.CENTER);
         vendorPanel.add(buttons, BorderLayout.SOUTH);
     }
 
     public JPanel getView(){
         return vendorPanel;
+    }
+
+    public JButton getReportButton() {
+        return reportButton;
+    }
+
+    public JButton getUpdateButton() {
+        return updateButton;
+    }
+
+    public JButton getAddButton() {
+        return addButton;
     }
 
     public void addRows(ArrayList<Item> list){

@@ -7,7 +7,12 @@ public class AddItemView {
 
     private JPanel addItemPanel;
     private JPanel formPanel;
-    GridBagConstraints c;
+    private GridBagConstraints c;
+    private JButton backButton;
+    private JButton submitButton;
+    private JTextField nameField;
+    private JTextField costField;
+    private JTextField quantityField;
 
     public AddItemView(){
         addItemPanel = new JPanel();
@@ -22,26 +27,26 @@ public class AddItemView {
         JLabel nameLabel = new JLabel("Item name: ");
         add(nameLabel, 0, 0);
 
-        JTextField nameField = new JTextField();
+        nameField = new JTextField();
         nameField.setColumns(10);
         add(nameField, 1, 0);
 
         JLabel costLabel = new JLabel("Item cost: ");
         add(costLabel, 0, 1);
 
-        JTextField costField = new JTextField();
+        costField = new JTextField();
         costField.setColumns(10);
         add(costField, 1, 1);
 
         JLabel quantityLabel = new JLabel("Item quantity: ");
         add(quantityLabel, 0, 2);
 
-        JTextField quantityField = new JTextField();
+        quantityField = new JTextField();
         quantityField.setColumns(10);
         add(quantityField, 1, 2);
 
-        JButton submitButton = new JButton("Submit");
-        JButton backButton = new JButton("Cancel");
+        submitButton = new JButton("Submit");
+        backButton = new JButton("Cancel");
 
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new FlowLayout());
@@ -55,6 +60,16 @@ public class AddItemView {
     public JPanel getView(){
         return addItemPanel;
     }
+
+    public JButton getBackButton() { return backButton; }
+
+    public JButton getSubmitButton() { return submitButton; }
+
+    public JTextField getNameField() { return nameField; }
+
+    public JTextField getCostField() { return costField; }
+
+    public JTextField getQuantityField() { return quantityField; }
 
     public void add(JComponent comp, int x, int y){
         c.gridx = x;
