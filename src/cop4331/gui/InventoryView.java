@@ -14,8 +14,13 @@ public class InventoryView {
     private JButton reportButton;
     private JButton updateButton;
     private JButton addButton;
+    private ArrayList<JButton> deleteButtons;
+    private ArrayList<JTextField> quantityFields;
 
     public InventoryView(){
+        deleteButtons = new ArrayList<>();
+        quantityFields = new ArrayList<>();
+
         vendorPanel = new JPanel();
         vendorPanel.setLayout(new BorderLayout());
 
@@ -58,6 +63,10 @@ public class InventoryView {
         return addButton;
     }
 
+    public ArrayList getDeleteButtons() { return deleteButtons; }
+
+    public ArrayList getQuantityFields() { return quantityFields; }
+
     public void addRows(ArrayList<Item> list){
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -80,10 +89,12 @@ public class InventoryView {
             String amount = String.valueOf(item.getQuantity());
             quantityField.setText(amount);
             invList.add(quantityField, c);
+            quantityFields.add(quantityField);
 
             c.gridx = 3;
             JButton deleteButton = new JButton("X");
             invList.add(deleteButton, c);
+            deleteButtons.add(deleteButton);
 
             y++;
         }

@@ -15,7 +15,7 @@ public class VendorViewTest {
         AddItemView view2 = new AddItemView();
         JFrame frame2 = new JFrame();
         frame2.add(view2.getView());
-        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame2.pack();
         frame2.setVisible(true);
     }

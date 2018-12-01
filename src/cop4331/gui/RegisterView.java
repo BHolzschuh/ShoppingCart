@@ -65,8 +65,10 @@ public class RegisterView {
 
         // Error label
         error = new JLabel(" ");
-        error.setHorizontalAlignment(JLabel.CENTER);
-        registerPanel.add(error, BorderLayout.SOUTH);
+        JPanel errorPanel = new JPanel();
+        errorPanel.setLayout(new FlowLayout());
+        errorPanel.add(error);
+        registerPanel.add(errorPanel, BorderLayout.SOUTH);
     }
 
     public JPanel getView(){ return registerPanel; }

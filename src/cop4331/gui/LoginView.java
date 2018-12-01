@@ -20,8 +20,10 @@ public class LoginView {
         loginPanel = new JPanel();
         loginPanel.setLayout(new BorderLayout());
         JLabel greetIn = new JLabel("Welcome to the shop, where you can be you");
-        greetIn.setHorizontalAlignment(JLabel.CENTER);
-        loginPanel.add(greetIn, BorderLayout.NORTH);
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(new FlowLayout());
+        titlePanel.add(greetIn);
+        loginPanel.add(titlePanel, BorderLayout.NORTH);
 
         //formPanel setup
         formPanel = new JPanel();
