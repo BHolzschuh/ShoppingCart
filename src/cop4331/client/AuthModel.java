@@ -8,22 +8,12 @@ public class AuthModel {
 
     private Hashtable<String, User> readUsers;
 
-
     public AuthModel() {
 
         try {
 
-
-            Shopper brian = new Shopper("brian", "holzschuh");
-            Hashtable<String, User> hashy = new Hashtable<>();
-            hashy.put("brian",brian);
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("users.dat"));
-            out.writeObject(hashy);
-            out.close();
-
-
-
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("users.dat"));
+
             readUsers = (Hashtable<String, User>) in.readObject();
             in.close();
 
@@ -72,17 +62,7 @@ public class AuthModel {
 
     }
 
-    public boolean authenticate(String name) {
-
-
-            if (readUsers.containsKey(name))
-                return true;
-
-
-
-        return false;
-
-    }
+    public boolean authenticate(String n, String pw) {return readUsers.containsKey(n) && pw.equals(readUsers.get(n).getPassword()); }
 
 }
 

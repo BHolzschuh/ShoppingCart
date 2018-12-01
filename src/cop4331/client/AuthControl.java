@@ -24,6 +24,7 @@ public class AuthControl {
 
         //register submit
         sc.getRegisterSubmitButton().addActionListener(e -> {
+            au.getUsers();
             System.out.println(sc.getRegisterUserForm().getText() + " " +
                     sc.getRegisterPwdForm().getText() + " " +
                     sc.getRegisterPwdConfirmForm().getText());
@@ -32,15 +33,23 @@ public class AuthControl {
 
         //login
         sc.getLoginButton().addActionListener(e -> {
-            if (au.authenticate(sc.getLoginUserForm().getText()))
+            au.getUsers();
+            if (au.authenticate(sc.getLoginUserForm().getText(),sc.getLoginPwdForm().getText())) {
                 sc.showShop();
+
+            }
         });
 
         sc.getLoginButton().addActionListener(e ->
                 System.out.println(sc.getLoginUserForm().getText() + " " + sc.getLoginPwdForm().getText())
         );
 
-        sc.getLoginButton().addActionListener(e -> au.registerShopper(sc.getLoginPwdForm().getText(),sc.getLoginPwdForm().getText()));
+        sc.getRegisterSubmitButton().addActionListener(e ->
+        {
+            if(sc.getRegisterPwdForm().getText().equals(sc.getRegisterPwdConfirmForm().getText()))
+            au.registerShopper(sc.getRegisterUserForm().getText(), sc.getRegisterPwdForm().getText());
+
+        });
     }
 
 
