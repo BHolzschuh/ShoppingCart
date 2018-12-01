@@ -8,6 +8,7 @@ public class RegisterView {
     GridBagLayout gl = new GridBagLayout();
     private GridBagConstraints gridC = new GridBagConstraints();
     private JPanel registerPanel;
+    private JPanel gridPanel;
     private JButton backButton;
     private JButton submitButton;
     private JTextField usrForm;
@@ -17,9 +18,11 @@ public class RegisterView {
 
     public RegisterView(){
 
-        GridBagLayout gl = new GridBagLayout();
         registerPanel = new JPanel();
-        registerPanel.setLayout(gl);
+        registerPanel.setLayout(new BorderLayout());
+
+        gridPanel = new JPanel();
+        gridPanel.setLayout(new GridBagLayout());
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 
@@ -58,9 +61,12 @@ public class RegisterView {
         submitButton = new JButton("Submit");
         add(submitButton, 1, 3);
 
+        registerPanel.add(gridPanel, BorderLayout.CENTER);
+
         // Error label
-        error = new JLabel("");
-        add(error, 0, 4);
+        error = new JLabel(" ");
+        error.setHorizontalAlignment(JLabel.CENTER);
+        registerPanel.add(error, BorderLayout.SOUTH);
     }
 
     public JPanel getView(){ return registerPanel; }
@@ -80,6 +86,6 @@ public class RegisterView {
     public void add(JComponent j, int x, int y){
         gridC.gridx = x;
         gridC.gridy = y;
-        registerPanel.add(j,gridC);
+        gridPanel.add(j,gridC);
     }
 }

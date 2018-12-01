@@ -59,6 +59,7 @@ public class AuthControl {
                         au.registerShopper(username, password);
                         au.getUsers();
                         sc.showLogin();
+                        sc.getErrorLabel().setText(" ");
                     }
                     else{
                         System.out.println("Username is taken");
