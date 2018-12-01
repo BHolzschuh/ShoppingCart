@@ -1,0 +1,59 @@
+package cop4331.client;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import javax.print.DocFlavor;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.*;
+
+public class InventoryTest {
+
+    @Test
+    public void testgetInstance() {
+        System.out.println("run test getInstance");
+        Inventory inv1 = Inventory.getInstance();
+        Inventory inv2 = Inventory.getInstance();
+
+        Assert.assertEquals(inv1, inv2);
+    }
+
+    @Test
+    public void testaddItemForm() {
+        System.out.println("run test addItemForm");
+        Product testProduct = new Product("bike", 12.00, "goes fast", 1);
+        Inventory inv = Inventory.getInstance();
+
+        inv.addItemForm("bike", 12.00, "goes fast", 1);
+        Item invProd = inv.getInventoryList().get(inv.getInventoryList().size() - 1);
+
+        Assert.assertEquals(testProduct.getName(), invProd.getName());
+    }
+
+    @Test
+    public void testaddItems() {
+        System.out.println("run test addItems");
+
+    }
+
+    @Test
+    public void testremoveItem() {
+        System.out.println("run test removeItem");
+        Inventory inv = Inventory.getInstance();
+        ArrayList<Item> test1 = inv.getInventoryList();
+
+        test1.removeIf(item -> item.getName().equals("nails"));
+        inv.removeItem("nails");
+        ArrayList<Item> test2 = inv.getInventoryList();
+
+        Assert.assertArrayEquals(test1.toArray(), test2.toArray());
+    }
+
+    @Test
+    public void testgetInventoryList() {
+        System.out.println("run test getInventoryList");
+
+    }
+}
