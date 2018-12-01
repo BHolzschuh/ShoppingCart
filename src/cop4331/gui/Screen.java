@@ -50,6 +50,8 @@ public class Screen {
         return registerView.getSubmitButton();
     }
 
+    public JButton getBackButton() { return registerView.getBackButton(); }
+
     public void showRegister(){
         cl.show(panelCont,"R");
     }

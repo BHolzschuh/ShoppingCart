@@ -6,10 +6,11 @@ package cop4331.client;
  */
 public class Product implements Item {
 
-    public Product(String name, double price, String description){
+    public Product(String name, double price, String description, int quantity){
         this.name = name;
         this.price = price;
         this.description = description;
+        this.quantity = quantity;
     }
 
     @Override
@@ -24,7 +25,12 @@ public class Product implements Item {
 
     @Override
     public int getQuantity() {
-        return 0;
+        return quantity;
+    }
+
+    @Override
+    public void increment() {
+        quantity++;
     }
 
     @Override
@@ -35,5 +41,6 @@ public class Product implements Item {
     private String name;
     private String description;
     private double price;
+    private int quantity;
 
 }

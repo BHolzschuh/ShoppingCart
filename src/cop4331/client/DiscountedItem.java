@@ -14,9 +14,10 @@ public class DiscountedItem implements Item {
      * @param item the item to be discounted
      * @param discount the discount percentage
      */
-    public DiscountedItem(Item item, double discount){
+    public DiscountedItem(Item item, double discount, int quantity){
         this.item = item;
         this.discount = discount;
+        this.quantity = quantity;
     }
 
     @Override
@@ -39,9 +40,15 @@ public class DiscountedItem implements Item {
 
     @Override
     public int getQuantity() {
-        return 0;
+        return quantity;
+    }
+
+    @Override
+    public void increment() {
+        quantity++;
     }
 
     private Item item;
     private double discount;
+    private int quantity;
 }
