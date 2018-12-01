@@ -13,6 +13,7 @@ public class RegisterView {
     private JTextField usrForm;
     private JTextField pwdForm;
     private JTextField pwdConfirmForm;
+    private JLabel error;
 
     public RegisterView(){
 
@@ -56,6 +57,10 @@ public class RegisterView {
         // Submit Button
         submitButton = new JButton("Submit");
         add(submitButton, 1, 3);
+
+        // Error label
+        error = new JLabel("");
+        add(error, 0, 4);
     }
 
     public JPanel getView(){ return registerPanel; }
@@ -69,6 +74,8 @@ public class RegisterView {
     public JTextField getPwdForm() { return pwdForm; }
 
     public JTextField getPwdConfirmForm() { return pwdConfirmForm; }
+
+    public JLabel getErrorLabel() { return error; }
 
     public void add(JComponent j, int x, int y){
         gridC.gridx = x;

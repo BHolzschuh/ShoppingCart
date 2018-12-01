@@ -74,4 +74,6 @@ public class Screen {
 
     public JTextField getRegisterPwdConfirmForm() { return registerView.getPwdConfirmForm(); }
 
+    public JLabel getErrorLabel() { return registerView.getErrorLabel(); }
+
 }

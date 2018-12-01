@@ -62,14 +62,17 @@ public class AuthControl {
                     }
                     else{
                         System.out.println("Username is taken");
+                        sc.getErrorLabel().setText("Username is taken.");
                     }
                 }
                 else{
                     System.out.println("Passwords don't match");
+                    sc.getErrorLabel().setText("Passwords don't match.");
                 }
             }
             else{
                 System.out.println("Invalid username/password");
+                sc.getErrorLabel().setText("Invalid username/password.");
             }
 
         });
