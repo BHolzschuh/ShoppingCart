@@ -6,7 +6,6 @@ import java.awt.*;
 public class LoginView {
 
     private JPanel loginPanel = new JPanel();
-    private JLabel welcomePanel = new JLabel();
     private JPanel formPanel = new JPanel();
     private JButton registerButton;
     private JButton loginButton;
@@ -18,15 +17,13 @@ public class LoginView {
     public LoginView(){
 
         //logicPanel setup
-        loginPanel.setLayout(new BoxLayout(loginPanel,BoxLayout.PAGE_AXIS));
-        JLabel label = new JLabel();
-        loginPanel.add(label);
-        JLabel greetIn = new JLabel("Hey there. Welcome to the shop. Where you can be you.");
-
+        loginPanel.setLayout(new BorderLayout());
+        JLabel greetIn = new JLabel("Welcome to the shop, where you can be you");
+        greetIn.setHorizontalAlignment(JLabel.CENTER);
+        loginPanel.add(greetIn, BorderLayout.NORTH);
 
         //formPanel setup
-        GridBagLayout gl = new GridBagLayout();
-        formPanel.setLayout(gl);
+        formPanel.setLayout(new GridBagLayout());
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 
@@ -40,7 +37,7 @@ public class LoginView {
         add(usrForm, 1, 0);
 
         // Password Label
-        JLabel pwd = new JLabel("Password:             ");
+        JLabel pwd = new JLabel("Password: ");
         add(pwd, 0, 1);
 
         // Password Field
@@ -57,7 +54,7 @@ public class LoginView {
         add(loginButton, 1, 2);
 
         //logicPanel.add(greetIn);
-        loginPanel.add(formPanel);
+        loginPanel.add(formPanel, BorderLayout.CENTER);
 
     }
 
