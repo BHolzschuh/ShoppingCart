@@ -29,6 +29,11 @@ public class Product implements Item {
     }
 
     @Override
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
     public void increment() {
         quantity++;
     }

@@ -11,7 +11,7 @@ public class AuthControl {
 
         //register button
         sc.getRegisterButton().addActionListener(e -> sc.showRegister());
-        
+
 
         //login
         sc.getLoginButton().addActionListener(e -> {
