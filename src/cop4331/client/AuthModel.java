@@ -27,24 +27,9 @@ public class AuthModel {
         System.out.println(readUsers);
     }
 
-    public void findUser() {
-
-        System.out.println("Check if user in system: ");
-        Scanner input = new Scanner(System.in);
-        User current = null;
-        boolean notFound = true;
-        while (notFound) {
-            String username = input.next();
-            if (readUsers.containsKey(username)) {
-                System.out.println("Found a user");
-                current = readUsers.get(username);
-                notFound = false;
-            } else {
-                System.out.println("No user");
-            }
-        }
-        System.out.println(current);
-
+    public boolean findUser(String username) {
+        if (readUsers.containsKey(username)) return true;
+        return false;
     }
 
     public void registerShopper(String name, String pw) {
