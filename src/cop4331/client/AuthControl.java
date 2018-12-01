@@ -41,6 +41,9 @@ public class AuthControl {
         );
 
         sc.getLoginButton().addActionListener(e -> au.registerShopper(sc.getLoginPwdForm().getText(),sc.getLoginPwdForm().getText()));
+
+        // Back Button
+        sc.getBackButton().addActionListener(e -> sc.showLogin());
     }
 
 

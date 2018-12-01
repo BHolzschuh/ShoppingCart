@@ -8,6 +8,7 @@ public class RegisterView {
     GridBagLayout gl = new GridBagLayout();
     private GridBagConstraints gridC = new GridBagConstraints();
     private JPanel registerPanel;
+    private JButton backButton;
     private JButton submitButton;
     private JTextField usrForm;
     private JTextField pwdForm;
@@ -48,14 +49,20 @@ public class RegisterView {
         pwdConfirmForm.setColumns(10);
         add(pwdConfirmForm, 1, 2);
 
+        // Back Button
+        backButton = new JButton("Cancel");
+        add(backButton, 0, 3);
+
         // Submit Button
         submitButton = new JButton("Submit");
-        add(submitButton, 0, 3);
+        add(submitButton, 1, 3);
     }
 
     public JPanel getView(){ return registerPanel; }
 
     public JButton getSubmitButton() { return submitButton; }
+
+    public JButton getBackButton() { return backButton; }
 
     public JTextField getUserForm() { return usrForm; }
 
