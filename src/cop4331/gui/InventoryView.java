@@ -80,8 +80,10 @@ public class InventoryView {
         vendorPanel.revalidate();
     }
 
-    public void deleteRefresh(JPanel panel){
-        invList.remove(panel);
+    public void deleteRefresh(int index){
+        quantityFields.remove(index);
+        deleteButtons.remove(index);
+        invList.remove(index);
         vendorPanel.revalidate();
     }
 
@@ -99,11 +101,16 @@ public class InventoryView {
 
         c.weightx = 0;
         c.gridx = 1;
-        String cost = "$" + String.valueOf(item.getPrice());
-        JLabel priceLabel = new JLabel(cost);
-        row.add(priceLabel, c);
+        String sellcost = "$" + String.valueOf(item.getSellPrice());
+        JLabel sellPriceLabel = new JLabel(sellcost);
+        row.add(sellPriceLabel, c);
 
         c.gridx = 2;
+        String invoicecost = "$" + String.valueOf(item.getInvoicePrice());
+        JLabel invoicePriceLabel = new JLabel(invoicecost);
+        row.add(invoicePriceLabel, c);
+
+        c.gridx = 3;
         JTextField quantityField = new JTextField();
         quantityField.setColumns(3);
         String amount = String.valueOf(item.getQuantity());
@@ -111,7 +118,7 @@ public class InventoryView {
         row.add(quantityField, c);
         quantityFields.add(quantityField);
 
-        c.gridx = 3;
+        c.gridx = 4;
         JButton deleteButton = new JButton("X");
         row.add(deleteButton, c);
         deleteButtons.add(deleteButton);
@@ -131,8 +138,10 @@ public class InventoryView {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(10,10,10,10);
         y = 0;
+        int i = 0;
         for(Item item: list){
             JPanel row = new JPanel();
+            row.putClientProperty("id", i);
             row.setLayout(new GridBagLayout());
 
             c.weightx = 1;
@@ -143,11 +152,16 @@ public class InventoryView {
 
             c.weightx = 0;
             c.gridx = 1;
-            String cost = "$" + String.valueOf(item.getPrice());
-            JLabel priceLabel = new JLabel(cost);
-            row.add(priceLabel, c);
+            String sellcost = "$" + String.valueOf(item.getSellPrice());
+            JLabel sellPriceLabel = new JLabel(sellcost);
+            row.add(sellPriceLabel, c);
 
             c.gridx = 2;
+            String invoicecost = "$" + String.valueOf(item.getInvoicePrice());
+            JLabel invoicePriceLabel = new JLabel(invoicecost);
+            row.add(invoicePriceLabel, c);
+
+            c.gridx = 3;
             JTextField quantityField = new JTextField();
             quantityField.setColumns(3);
             String amount = String.valueOf(item.getQuantity());
@@ -155,7 +169,7 @@ public class InventoryView {
             row.add(quantityField, c);
             quantityFields.add(quantityField);
 
-            c.gridx = 3;
+            c.gridx = 4;
             JButton deleteButton = new JButton("X");
             row.add(deleteButton, c);
             deleteButtons.add(deleteButton);

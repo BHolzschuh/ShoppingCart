@@ -16,15 +16,18 @@ public class ShopController {
         inv = Inventory.getInstance();
 
         System.out.println(printInventory());
-        sc.getInventoryLabel().setText("" + inv.getInventoryList().size());
+       // sc.getInventoryLabel().setText("" + inv.getInventoryList().size());
 
         for(int i = 0; i < inv.getInventorySize(); i++){
-            //System.out.println("adding " + inv.getInventoryList().get(i).getName());
-           sc.getItemNames().add(new JLabel("hi"));
+
+            Item item = inv.getInventoryList().get(i);
+           sc.getItemNames().add(new JLabel(item.getName()));
+           sc.getItemPrice().add(new JLabel("" + item.getSellPrice()));
+           sc.getItemQuantity().add(new JLabel("" + item.getQuantity()));
 
         }
 
-        sc.getItemPanel().revalidate();
+        sc.loadDisplay();
         
         System.out.println(sc.getItemNames().get(3).getText());
 

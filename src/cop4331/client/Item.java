@@ -8,16 +8,28 @@ import java.io.Serializable;
  */
 public interface Item extends Serializable {
     /**
+     * Gets the unique ID of the item
+     * @return the ID
+     */
+    int getID();
+
+    /**
      * Gets the name of the item
      * @return the name
      */
     String getName();
 
     /**
-     * Gets the price of the item
-     * @return the price
+     * Gets the selling price of the item
+     * @return the sell price
      */
-    double getPrice();
+    double getSellPrice();
+
+    /**
+     * Gets the invoice price of the item
+     * @return the invoice price
+     */
+    double getInvoicePrice();
 
     /**
      * Gets the description of the item

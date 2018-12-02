@@ -12,7 +12,8 @@ public class AddItemView {
     private JButton backButton;
     private JButton submitButton;
     private JTextField nameField;
-    private JTextField costField;
+    private JTextField sellCostField;
+    private JTextField invoiceCostField;
     private JTextField quantityField;
     private JTextArea descriptionField;
 
@@ -35,27 +36,36 @@ public class AddItemView {
         nameField.setColumns(10);
         add(nameField, 1, 0);
 
-        // Cost label
-        JLabel costLabel = new JLabel("Item cost: ");
-        add(costLabel, 0, 1);
+        // sellCost label
+        JLabel sellCostLabel = new JLabel("Item sell price: ");
+        add(sellCostLabel, 0, 1);
 
-        // Cost field
-        costField = new JTextField();
-        costField.setColumns(10);
-        add(costField, 1, 1);
+        // sellCost field
+        sellCostField = new JTextField();
+        sellCostField.setColumns(10);
+        add(sellCostField, 1, 1);
+
+        // invoiceCost label
+        JLabel invoiceCostLabel = new JLabel("Item invoice price: ");
+        add(invoiceCostLabel, 0, 2);
+
+        // invoiceCost field
+        invoiceCostField = new JTextField();
+        invoiceCostField.setColumns(10);
+        add(invoiceCostField, 1, 2);
 
         // Quantity label
         JLabel quantityLabel = new JLabel("Item quantity: ");
-        add(quantityLabel, 0, 2);
+        add(quantityLabel, 0, 3);
 
         // Quantity field
         quantityField = new JTextField();
         quantityField.setColumns(10);
-        add(quantityField, 1, 2);
+        add(quantityField, 1, 3);
 
         // Description label
         JLabel descriptionLabel = new JLabel("Item Description: ");
-        add(descriptionLabel, 0, 3);
+        add(descriptionLabel, 0, 4);
 
         // Description field
         descriptionField = new JTextArea();
@@ -66,7 +76,7 @@ public class AddItemView {
         descriptionField.setWrapStyleWord(true);
         descriptionField.setColumns(10);
         descriptionField.setRows(3);
-        add(descriptionField, 1, 3);
+        add(descriptionField, 1, 4);
 
         // Buttons
         submitButton = new JButton("Submit");
@@ -99,7 +109,9 @@ public class AddItemView {
 
     public JTextField getNameField() { return nameField; }
 
-    public JTextField getCostField() { return costField; }
+    public JTextField getSellCostField() { return sellCostField; }
+
+    public JTextField getInvoiceCostField() { return invoiceCostField; }
 
     public JTextField getQuantityField() { return quantityField; }
 

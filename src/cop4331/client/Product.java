@@ -6,11 +6,18 @@ package cop4331.client;
  */
 public class Product implements Item {
 
-    public Product(String name, double price, String description, int quantity){
+    public Product(int ID, String name, double sellPrice, double invoicePrice, String description, int quantity){
+        this.ID = ID;
         this.name = name;
-        this.price = price;
+        this.sellPrice = sellPrice;
+        this.invoicePrice = invoicePrice;
         this.description = description;
         this.quantity = quantity;
+    }
+
+    @Override
+    public int getID() {
+        return ID;
     }
 
     @Override
@@ -19,8 +26,13 @@ public class Product implements Item {
     }
 
     @Override
-    public double getPrice() {
-        return price;
+    public double getSellPrice() {
+        return sellPrice;
+    }
+
+    @Override
+    public double getInvoicePrice() {
+        return invoicePrice;
     }
 
     @Override
@@ -45,7 +57,9 @@ public class Product implements Item {
 
     private String name;
     private String description;
-    private double price;
+    private double sellPrice;
+    private double invoicePrice;
     private int quantity;
+    private int ID;
 
 }

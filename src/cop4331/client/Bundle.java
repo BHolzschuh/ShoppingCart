@@ -9,7 +9,8 @@ import java.util.Arrays;
  */
 public class Bundle implements Item {
 
-    public Bundle(int quantity, Item...items) {
+    public Bundle(int ID, int quantity, Item...items) {
+        this.ID = ID;
         this.items = new ArrayList<>();
         this.items.addAll(Arrays.asList(items));
         this.quantity = quantity;
@@ -17,6 +18,11 @@ public class Bundle implements Item {
 
     public void add(Item...items) {
         this.items.addAll(Arrays.asList(items));
+    }
+
+    @Override
+    public int getID() {
+        return ID;
     }
 
     @Override
@@ -30,10 +36,19 @@ public class Bundle implements Item {
     }
 
     @Override
-    public double getPrice() {
+    public double getSellPrice() {
         double price = 0;
         for(Item item: items){
-            price += item.getPrice();
+            price += item.getSellPrice();
+        }
+        return price;
+    }
+
+    @Override
+    public double getInvoicePrice() {
+        double price = 0;
+        for(Item item: items){
+            price += item.getInvoicePrice();
         }
         return price;
     }
@@ -65,4 +80,5 @@ public class Bundle implements Item {
 
     private ArrayList<Item> items;
     private int quantity;
+    private int ID;
 }

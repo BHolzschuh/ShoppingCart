@@ -14,46 +14,42 @@ public class DiscountedItem implements Item {
      * @param item the item to be discounted
      * @param discount the discount percentage
      */
-    public DiscountedItem(Item item, double discount, int quantity){
+    public DiscountedItem(Item item, double discount){
         this.item = item;
         this.discount = discount;
-        this.quantity = quantity;
     }
 
     @Override
-    public String getName() {
-        return item.getName() + " (Discount " + discount + "%)";
-    }
+    public int getID() { return item.getID(); }
 
     @Override
-    public String toString() {
-        return item.toString() + " (Discount " + discount + "%)";
-    }
+    public String getName() { return item.getName() + " (Discount " + discount + "%)"; }
 
     @Override
-    public double getPrice() {
+    public String toString() { return item.toString() + " (Discount " + discount + "%)"; }
+
+    @Override
+    public double getSellPrice() {
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
-        String value = df.format(item.getPrice() * (1 - discount / 100));
+        String value = df.format(item.getSellPrice() * (1 - discount / 100));
         return Double.parseDouble(value);
     }
 
     @Override
-    public int getQuantity() {
-        return quantity;
+    public double getInvoicePrice() {
+        return item.getInvoicePrice();
     }
 
     @Override
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+    public int getQuantity() { return item.getQuantity(); }
 
     @Override
-    public void increment() {
-        quantity++;
-    }
+    public void setQuantity(int quantity) { item.setQuantity(quantity); }
+
+    @Override
+    public void increment() { item.increment(); }
 
     private Item item;
     private double discount;
-    private int quantity;
 }

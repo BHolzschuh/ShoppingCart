@@ -110,8 +110,8 @@ public class Screen {
         inventoryView.addRefresh();
         mainFrame.pack();
     }
-    public void inventoryDeleteRefresh(JPanel panel){
-        inventoryView.deleteRefresh(panel);
+    public void inventoryDeleteRefresh(int index){
+        inventoryView.deleteRefresh(index);
         mainFrame.pack();
     }
 
@@ -125,8 +125,18 @@ public class Screen {
     public JButton getAddItemBackButton() { return addItemView.getBackButton(); }
     public JButton getAddItemSubmitButton() { return addItemView.getSubmitButton(); }
     public JTextField getItemNameField() { return addItemView.getNameField(); }
-    public JTextField getItemCostField() { return addItemView.getCostField(); }
+    public JTextField getItemSellCostField() { return addItemView.getSellCostField(); }
+    public JTextField getItemInvoiceCostField() { return addItemView.getInvoiceCostField(); }
     public JTextField getItemQuantityField() { return addItemView.getQuantityField(); }
     public JTextArea getItemDescriptionField() { return addItemView.getDescriptionField(); }
+
+    public JPanel getItemPanel() { return shopView.getItemPanel(); }
+    public ArrayList<JLabel> getItemNames(){ return shopView.getItemNames(); }
+    public ArrayList<JLabel> getItemPrice(){ return shopView.getItemPrice(); }
+    public ArrayList<JLabel> getItemQuantity(){ return shopView.getItemQuantity(); }
+    public void loadDisplay() {
+        shopView.load();
+        mainFrame.pack();
+    }
 
 }
