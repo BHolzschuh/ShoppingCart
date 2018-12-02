@@ -10,8 +10,8 @@ public class InitializeInventory{
         Vendor vendor = new Vendor("vendor", "password", "OwlPatrol", "owl");
         Hashtable<String, User> users = new Hashtable<>();
         users.put(vendor.getUserName(), vendor);
-        Product hammer = new Product("Hammer", 5.00, "Great at nailing things", 3);
-        Product nails = new Product("Nails", 3.20, "50 count of nails", 3);
+        Product hammer = new Product("Hammer", 5.25, "Great at nailing things", 3);
+        Product nails = new Product("Nails", 3.27, "50 count of nails", 3);
         Product pickles = new Product("Pickles", 2.99, "Sweet and Sour", 5);
         DiscountedItem dbundle = new DiscountedItem(new Bundle(1, hammer, nails), 20, 1);
         Product bike = new Product("Bicycle", 129.99, "Need to get around town?", 2);

@@ -1,8 +1,6 @@
 package cop4331.client;
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -49,18 +47,25 @@ public class Inventory implements Serializable {
                 for(int i = 0; i < quantity; i++) {
                     item.increment();
                 }
+                updateData();
                 return;
             }
         }
         inventoryList.add(new Product(name, price, description, quantity));
+        updateData();
     }
 
     /**
-     *
-     * @param items
+     * Writes the current inventory to the data file
      */
-    public void addItems(Item...items){
-        inventoryList.addAll(Arrays.asList(items));
+    private void updateData(){
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("inventory.dat"));
+            out.writeObject(inventoryList);
+            out.close();
+        } catch (Exception e){
+            System.out.println("File error");
+        }
     }
 
     /**
@@ -69,6 +74,7 @@ public class Inventory implements Serializable {
      */
     public void removeItem(String name){
         inventoryList.removeIf(item -> item.getName().equals(name));
+        updateData();
     }
 
     /**
