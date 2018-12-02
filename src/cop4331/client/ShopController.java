@@ -31,10 +31,10 @@ public class ShopController {
         
         System.out.println(sc.getItemNames().get(3).getText());
 
+
     }
 
     public String printInventory(){
-;
         return inv.getInventoryList().toString();
     }
 
