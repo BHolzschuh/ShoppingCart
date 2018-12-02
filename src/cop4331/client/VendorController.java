@@ -10,8 +10,6 @@ import javax.swing.*;
 public class VendorController {
 
     private Screen sc;
-    private int updateCount;
-    private int deleteCount;
     private Inventory inventory;
 
     public VendorController(Screen sc){
@@ -26,21 +24,31 @@ public class VendorController {
 
         // Inventory update button
         sc.getInventoryUpdateButton().addActionListener(e -> {
-            System.out.println("Updating quantity");
+            try {
+                int count = 0;
+                for (JTextField quantityField : sc.getInventoryQuantityFields()) {
+                    inventory.updateQuantity(count, Integer.parseInt(quantityField.getText()));
+                    count++;
+                }
+            } catch (Exception ex){
+                System.out.println("Invalid quantity values");
+            }
         });
 
         // Inventory delete buttons
-        deleteCount = 0;
         for(JButton button: sc.getInventoryDeleteButtons()){
-            final Item item = inventory.getInventoryList().get(deleteCount);
-            final int current = deleteCount;
             button.addActionListener(e -> {
+                int count = 0;
+                for(JButton button1: sc.getInventoryDeleteButtons()){
+                    if(button1 == button) break;
+                    count++;
+                }
+                System.out.println("index of button: " + count);
+                Item item = inventory.getInventoryList().get(count);
                 System.out.println(item.getName());
-                inventory.removeItem(item.getName());
-                JPanel panel = sc.getInventoryRows().get(current);
-                sc.inventoryDeleteRefresh(panel);
+                inventory.removeItem(item.getID());
+                sc.inventoryDeleteRefresh(count);
             });
-            deleteCount++;
         }
 
         // Report ok button
@@ -53,12 +61,13 @@ public class VendorController {
         sc.getAddItemSubmitButton().addActionListener(e -> {
             try{
                 String itemName = sc.getItemNameField().getText();
-                double itemPrice = Double.parseDouble(sc.getItemCostField().getText());
+                double itemSellPrice = Double.parseDouble(sc.getItemSellCostField().getText());
+                double itemInvoicePrice = Double.parseDouble(sc.getItemInvoiceCostField().getText());
                 int itemQuantity = Integer.parseInt(sc.getItemQuantityField().getText());
                 String itemDescription = sc.getItemDescriptionField().getText();
+                resetForm();
 
-                deleteCount = inventory.getInventoryList().size() - 1;
-                Inventory.getInstance().addItemForm(itemName, itemPrice, itemDescription, itemQuantity);
+                inventory.addItemForm(itemName, itemSellPrice, itemInvoicePrice, itemDescription, itemQuantity);
                 sc.inventoryAddRefresh();
                 sc.closeAddItemFrame();
                 updateDeleteButtons();
@@ -71,13 +80,26 @@ public class VendorController {
 
     private void updateDeleteButtons(){
         JButton newDelete = sc.getInventoryDeleteButtons().get(sc.getInventoryDeleteButtons().size() - 1);
-        final Item item = inventory.getInventoryList().get(inventory.getInventoryList().size() - 1);
         newDelete.addActionListener(e -> {
+            int count = 0;
+            for(JButton button1: sc.getInventoryDeleteButtons()){
+                if(button1 == newDelete) break;
+                count++;
+            }
+            System.out.println("index of button: " + count);
+            Item item = inventory.getInventoryList().get(count);
             System.out.println(item.getName());
-            inventory.removeItem(item.getName());
-            JPanel panel = sc.getInventoryRows().get(sc.getInventoryRows().size() - 1);
-            sc.inventoryDeleteRefresh(panel);
+            inventory.removeItem(item.getID());
+            sc.inventoryDeleteRefresh(count);
         });
+    }
+
+    private void resetForm(){
+        sc.getItemNameField().setText("");
+        sc.getItemSellCostField().setText("");
+        sc.getItemInvoiceCostField().setText("");
+        sc.getItemQuantityField().setText("");
+        sc.getItemDescriptionField().setText("");
     }
 
 

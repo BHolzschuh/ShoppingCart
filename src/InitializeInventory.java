@@ -10,14 +10,14 @@ public class InitializeInventory{
         Vendor vendor = new Vendor("vendor", "password", "OwlPatrol", "owl");
         Hashtable<String, User> users = new Hashtable<>();
         users.put(vendor.getUserName(), vendor);
-        Product hammer = new Product("Hammer", 5.25, "Great at nailing things", 3);
-        Product nails = new Product("Nails", 3.27, "50 count of nails", 3);
-        Product pickles = new Product("Pickles", 2.99, "Sweet and Sour", 5);
-        DiscountedItem dbundle = new DiscountedItem(new Bundle(1, hammer, nails), 20, 1);
-        Product bike = new Product("Bicycle", 129.99, "Need to get around town?", 2);
-        Product helmet = new Product("Helmet", 24.99, "To protect your noggin", 9);
-        Product pump = new Product("Air Pump", 12.99, "To keep you going", 3);
-        DiscountedItem dbundle2 = new DiscountedItem(new Bundle(1, bike, helmet, pump), 10, 2);
+        Product hammer = new Product(1, "Hammer", 5.25, 3, "Great at nailing things", 3);
+        Product nails = new Product(2, "Nails", 3.27, 1, "50 count of nails", 3);
+        Product pickles = new Product(3, "Pickles", 2.99, 2, "Sweet and Sour", 5);
+        DiscountedItem dbundle = new DiscountedItem(new Bundle(7, 1, hammer, nails), 20);
+        Product bike = new Product(4, "Bicycle", 129.99, 60, "Need to get around town?", 2);
+        Product helmet = new Product(5, "Helmet", 24.99, 10, "To protect your noggin", 9);
+        Product pump = new Product(6, "Air Pump", 12.99, 7, "To keep you going", 3);
+        DiscountedItem dbundle2 = new DiscountedItem(new Bundle(8, 1, bike, helmet, pump), 10);
         Item[] items = new Item[]{hammer, nails, pickles, bike, helmet, pump, dbundle, dbundle2};
         ArrayList<Item> inventory = new ArrayList<>(Arrays.asList(items));
         try {

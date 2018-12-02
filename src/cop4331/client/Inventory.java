@@ -37,11 +37,12 @@ public class Inventory implements Serializable {
     /**
      *
      * @param name
-     * @param price
+     * @param sellPrice
+     * @param invoicePrice
      * @param description
      * @param quantity
      */
-    public void addItemForm(String name, double price, String description, int quantity){
+    public void addItemForm(String name, double sellPrice, double invoicePrice, String description, int quantity){
         for(Item item: inventoryList){
             if(item.getName().equals(name)) {
                 for(int i = 0; i < quantity; i++) {
@@ -51,7 +52,7 @@ public class Inventory implements Serializable {
                 return;
             }
         }
-        inventoryList.add(new Product(name, price, description, quantity));
+        inventoryList.add(new Product(inventoryList.size() + 1, name, sellPrice, invoicePrice, description, quantity));
         updateData();
     }
 
@@ -70,21 +71,16 @@ public class Inventory implements Serializable {
 
     /**
      *
-     * @param name
+     * @param ID
      */
-    public void removeItem(String name){
-        inventoryList.removeIf(item -> item.getName().equals(name));
+    public void removeItem(int ID){
+        inventoryList.removeIf(item -> item.getID() == ID);
         updateData();
     }
 
-    /**
-     *
-     */
-    public void printInv(){
-        for(Item item: inventoryList){
-            System.out.println(item.getName() + " " + item.getQuantity());
-            item.increment();
-        }
+    public void updateQuantity(int index, int quantity){
+        inventoryList.get(index).setQuantity(quantity);
+        updateData();
     }
 
     public ArrayList<Item> getInventoryList(){
