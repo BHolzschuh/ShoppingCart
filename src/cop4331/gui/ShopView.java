@@ -97,4 +97,3 @@ public class ShopView {
     public ArrayList<JLabel> getItemQuantity(){ return itemQuantity; }
 
 }
-
