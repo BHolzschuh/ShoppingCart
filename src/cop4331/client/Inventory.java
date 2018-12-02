@@ -87,5 +87,9 @@ public class Inventory implements Serializable {
         return (ArrayList<Item>) inventoryList.clone();
     }
 
+    public int getInventorySize(){
+        return inventoryList.size();
+    }
+
     private ArrayList<Item> inventoryList;
 }

@@ -130,4 +130,13 @@ public class Screen {
     public JTextField getItemQuantityField() { return addItemView.getQuantityField(); }
     public JTextArea getItemDescriptionField() { return addItemView.getDescriptionField(); }
 
+    public JPanel getItemPanel() { return shopView.getItemPanel(); }
+    public ArrayList<JLabel> getItemNames(){ return shopView.getItemNames(); }
+    public ArrayList<JLabel> getItemPrice(){ return shopView.getItemPrice(); }
+    public ArrayList<JLabel> getItemQuantity(){ return shopView.getItemQuantity(); }
+    public void loadDisplay() {
+        shopView.load();
+        mainFrame.pack();
+    }
+
 }
