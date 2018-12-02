@@ -1,12 +1,13 @@
 package cop4331.client;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Brian Holzschuh
  * Stores a list of products in the users cart
  */
-public class Cart {
+public class Cart implements Serializable {
 
     /**
      * Constructs a cart list

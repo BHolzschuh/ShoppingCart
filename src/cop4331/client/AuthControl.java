@@ -28,7 +28,6 @@ public class AuthControl {
             username = username.toLowerCase();
             String password = sc.getRegisterPwdForm().getText();
             username = username.replaceAll("[^A-Za-z0-9]", " ");
-            password = password.replaceAll("[^A-Za-z0-9]", " ");
             boolean valid = true;
 
             if(username.length() < 5 || password.length() < 5) valid = false;
@@ -75,7 +74,7 @@ public class AuthControl {
         });
 
         // Back Button
-        sc.getBackButton().addActionListener(e -> sc.showLogin());
+        sc.getRegisterBackButton().addActionListener(e -> sc.showLogin());
     }
 
 

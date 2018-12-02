@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
+/**
+ * @author Brian Holzschuh
+ * Tester for the Inventory class
+ */
 public class InventoryTest {
 
     @Test
@@ -33,12 +37,6 @@ public class InventoryTest {
     }
 
     @Test
-    public void testaddItems() {
-        System.out.println("run test addItems");
-
-    }
-
-    @Test
     public void testremoveItem() {
         System.out.println("run test removeItem");
         Inventory inv = Inventory.getInstance();
@@ -49,11 +47,5 @@ public class InventoryTest {
         ArrayList<Item> test2 = inv.getInventoryList();
 
         Assert.assertArrayEquals(test1.toArray(), test2.toArray());
-    }
-
-    @Test
-    public void testgetInventoryList() {
-        System.out.println("run test getInventoryList");
-
     }
 }

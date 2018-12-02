@@ -4,6 +4,9 @@ import java.io.*;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+/**
+ * @author Ben Shapiro
+ */
 public class AuthModel {
 
     private Hashtable<String, User> readUsers;
@@ -27,10 +30,12 @@ public class AuthModel {
         System.out.println(readUsers);
     }
 
+
     public boolean findUser(String username) {
         if (readUsers.containsKey(username)) return true;
         return false;
     }
+
 
     public void registerShopper(String name, String pw) {
 
@@ -47,7 +52,7 @@ public class AuthModel {
 
     }
 
-    public boolean authenticate(String n, String pw) {return readUsers.containsKey(n) && pw.equals(readUsers.get(n).getPassword()); }
+    public boolean authenticate(String n, String pw) {return findUser(n) && pw.equals(readUsers.get(n).getPassword()); }
 
 }
 
