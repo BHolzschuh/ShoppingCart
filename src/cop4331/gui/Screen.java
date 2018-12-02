@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * @author Brian Holzschuh, Ben Shapiro
+ */
 public class Screen {
     private JPanel panelCont;
     private CardLayout cl;
@@ -102,12 +105,13 @@ public class Screen {
     public JButton getInventoryReportButton() { return inventoryView.getReportButton(); }
     public JButton getInventoryAddButton() { return inventoryView.getAddButton(); }
     public JButton getInventoryUpdateButton() { return inventoryView.getUpdateButton(); }
+    public ArrayList<JPanel> getInventoryRows() { return inventoryView.getRowPanels(); }
     public void inventoryAddRefresh() {
         inventoryView.addRefresh();
         mainFrame.pack();
     }
-    public void inventoryDeleteRefresh(){
-        inventoryView.deleteRefresh();
+    public void inventoryDeleteRefresh(JPanel panel){
+        inventoryView.deleteRefresh(panel);
         mainFrame.pack();
     }
 
