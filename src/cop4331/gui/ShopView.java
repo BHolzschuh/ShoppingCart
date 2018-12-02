@@ -33,11 +33,16 @@ public class ShopView {
 
         update = new JButton("update");
         checkOut = new JButton("Check Out Cart");
+        checkOut.setBackground(Color.green);
+        checkOut.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        checkOut.setOpaque(true);
 
-        addItem(new JLabel("Item"),0,0);
-        addItem(new JLabel("Cost"),1,0);
-        addItem(new JLabel("Quantity"),2,0);
-        addItem(new JLabel("In Stock"),3,0);
+        addItem(new JLabel("Please make a selection:"),0,0);
+
+        addItem(new JLabel("Item"),0,2);
+        addItem(new JLabel("Cost"),1,2);
+        addItem(new JLabel("Quantity"),2,2);
+        addItem(new JLabel("In Stock"),3,2);
 
         shopPanel.add(title,BorderLayout.NORTH);
         shopPanel.add(itemPanel,BorderLayout.CENTER);
@@ -52,19 +57,19 @@ public class ShopView {
 
     public void populate(){
 
-        int i = 1;
+        int i = 3;
         for(JLabel j: itemNames){
             addItem(j,0,i);
             i++;
         }
 
-        i = 1;
+        i = 3;
         for(JLabel j: itemPrice){
             addItem(j,1,i);
             i++;
         }
 
-        i = 1;
+        i = 3;
         for(JLabel j: itemQuantity){
             addItem(j,3,i);
             i++;
@@ -72,9 +77,9 @@ public class ShopView {
 
         addItem(new JButton("add"),2,i);
 
-        i--;
 
-        while(i>0){
+
+        while(i>2){
             addItem(new JTextField("0"),2,i);
             i--;
         }
