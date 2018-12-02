@@ -74,6 +74,7 @@ public class Inventory implements Serializable {
      */
     public void removeItem(String name){
         inventoryList.removeIf(item -> item.getName().equals(name));
+        updateData();
     }
 
     /**

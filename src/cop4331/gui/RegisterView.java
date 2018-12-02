@@ -25,6 +25,7 @@ public class RegisterView {
         gridC = new GridBagConstraints();
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
+        gridC.weightx = 1.0;
 
         // Username Label
         JLabel usr = new JLabel("Set username: ");

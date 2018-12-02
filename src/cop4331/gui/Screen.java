@@ -17,6 +17,7 @@ public class Screen {
     private AddItemView addItemView;
     private JFrame reportFrame;
     private JFrame addItemFrame;
+    private JFrame mainFrame;
 
     public Screen(){
         loginView = new LoginView();
@@ -45,12 +46,12 @@ public class Screen {
         cl.show(panelCont,"L");
 
 
-        JFrame frame = new JFrame("Shopping Extravaganza");
-        frame.setLocationRelativeTo(null);
-        frame.add(panelCont);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+        mainFrame = new JFrame("Shopping Extravaganza");
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.add(panelCont);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.pack();
+        mainFrame.setVisible(true);
     }
 
     // Panel manipulation
@@ -101,7 +102,14 @@ public class Screen {
     public JButton getInventoryReportButton() { return inventoryView.getReportButton(); }
     public JButton getInventoryAddButton() { return inventoryView.getAddButton(); }
     public JButton getInventoryUpdateButton() { return inventoryView.getUpdateButton(); }
-    public void addRows() { inventoryView.addRows(Inventory.getInstance().getInventoryList()); }
+    public void inventoryAddRefresh() {
+        inventoryView.addRefresh();
+        mainFrame.pack();
+    }
+    public void inventoryDeleteRefresh(){
+        inventoryView.deleteRefresh();
+        mainFrame.pack();
+    }
 
     // Report getters
     public JLabel getReportCosts() { return reportView.getCosts(); }
