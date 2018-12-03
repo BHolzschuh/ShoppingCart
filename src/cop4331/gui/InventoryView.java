@@ -28,11 +28,43 @@ public class InventoryView {
         quantityFields = new ArrayList<>();
         rows = new ArrayList<>();
 
+        c = new GridBagConstraints();
+
         vendorPanel = new JPanel();
         vendorPanel.setLayout(new BorderLayout());
 
         invList = new JPanel();
         invList.setLayout(new GridBagLayout());
+
+        // Title row
+        JLabel name = new JLabel("Name");
+        JLabel sellPrice = new JLabel("Sell");
+        JLabel invoicePrice = new JLabel("Invoice");
+        JLabel quantity = new JLabel("Quantity");
+        JLabel delete = new JLabel("Delete");
+
+        JPanel row = new JPanel();
+        row.setLayout(new GridBagLayout());
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(10,10,10,10);
+
+        c.gridx = 0;
+        c.gridy = 0;
+        c.weightx = 1;
+        row.add(name, c);
+        c.weightx = 0;
+        c.gridx = 1;
+        row.add(sellPrice, c);
+        c.gridx = 2;
+        row.add(invoicePrice, c);
+        c.gridx = 3;
+        row.add(quantity, c);
+        c.gridx = 4;
+        row.add(delete, c);
+        c.gridx = 0;
+        c.gridy = 0;
+        invList.add(row, c);
 
         addRows();
 
@@ -134,10 +166,7 @@ public class InventoryView {
     private void addRows(){
         ArrayList<Item> list = Inventory.getInstance().getInventoryList();
 
-        c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(10,10,10,10);
-        y = 0;
+        y = 1;
         int i = 0;
         for(Item item: list){
             JPanel row = new JPanel();

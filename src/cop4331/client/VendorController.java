@@ -15,8 +15,8 @@ public class VendorController {
     private Report report;
 
     /**
-     * @author Brian Holzschuh
-     * @param sc 
+     * Constructs the vendor controller
+     * @param sc Screen controller
      */
     public VendorController(Screen sc){
         this.sc = sc;
@@ -94,6 +94,9 @@ public class VendorController {
         });
     }
 
+    /**
+     * Adds a delete button to the array with an action listener
+     */
     private void updateDeleteButtons(){
         JButton newDelete = sc.getInventoryDeleteButtons().get(sc.getInventoryDeleteButtons().size() - 1);
         newDelete.addActionListener(e -> {
@@ -110,6 +113,9 @@ public class VendorController {
         });
     }
 
+    /**
+     * Resets the item form to blanks
+     */
     private void resetForm(){
         sc.getItemNameField().setText("");
         sc.getItemSellCostField().setText("");
