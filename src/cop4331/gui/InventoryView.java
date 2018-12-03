@@ -152,6 +152,9 @@ public class InventoryView {
 
         c.gridx = 4;
         JButton deleteButton = new JButton("X");
+        deleteButton.setBackground(Color.RED);
+        deleteButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        deleteButton.setOpaque(true);
         row.add(deleteButton, c);
         deleteButtons.add(deleteButton);
 

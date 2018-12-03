@@ -19,14 +19,22 @@ public class ShopController {
 
         sc.addRequest().addActionListener(e -> {
 
+
             int i = 0;
             for (JTextField j : sc.getQuantityUpdate()){
                 System.out.println(j.getText());
                 if (!j.getText().equals("0")) {
-                    usr.getCart().addItem(inv.getInventoryList().get(i));
-                    usr.getCart().updateQuantity(inv.getInventoryList().get(i),Integer.parseInt(j.getText()));
-                    sc.getCartItemName().add(new JLabel(inv.getInventoryList().get(i).getName()));
-                    sc.getCartItemQuantity().add(new JLabel(j.getText()));
+                    if(usr.getCart().updateQuantity(inv.getInventoryList().get(i),Integer.parseInt(j.getText()))) {
+                        sc.getCartItemName().add(new JLabel(inv.getInventoryList().get(i).getName()));
+                        sc.getCartItemQuantity().add(new JLabel(j.getText()));
+                    }
+                    else{
+                        int index = usr.getCart().search(j.getText());
+                        if(index!=200) {
+                            sc.getCartItemName().set(index, new JLabel(inv.getInventoryList().get(i).getName()));
+                            sc.getCartItemQuantity().set(index, new JLabel(j.getText()));
+                        }
+                    }
                 }
             i++;
 

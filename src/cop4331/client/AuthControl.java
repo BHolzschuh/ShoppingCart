@@ -20,6 +20,10 @@ public class AuthControl {
                 ShopController newSession = new ShopController(sc,(Shopper) au.authenticate(sc.getLoginUserForm().getText().toLowerCase(),sc.getLoginPwdForm().getText()));
                 sc.showShop();
             }
+            else if(au.getVendorFlag()){
+                VendorController newVendorSession = new VendorController(sc);
+                sc.showInventory();
+            }
         });
 
 

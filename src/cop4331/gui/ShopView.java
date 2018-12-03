@@ -55,9 +55,10 @@ public class ShopView {
         cartItemName = new ArrayList<>();
         cartItemQuantity = new ArrayList<>();
 
-        addItem(cartPanel,new JLabel("Item"),5,0);
-        addItem(cartPanel,new JLabel("Quantity"),6,0);
-        
+        addItem(cartPanel,new JLabel("CART"),5,0);
+        addItem(cartPanel,new JLabel("Item"),5,2);
+        addItem(cartPanel,new JLabel("Quantity"),6,2);
+
         cartPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         shopPanel.add(title,BorderLayout.NORTH);
@@ -74,13 +75,13 @@ public class ShopView {
 
     public void fillCart(){
 
-        int i = 1;
+        int i = 3;
         for(JLabel j: cartItemName){
             addItem(cartPanel,j,5,i);
             i++;
         }
 
-        i = 1;
+        i = 3;
         for(JLabel j: cartItemQuantity){
             addItem(cartPanel,j,6,i);
             i++;

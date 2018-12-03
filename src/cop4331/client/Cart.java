@@ -21,7 +21,10 @@ public class Cart implements Serializable {
      * @param item to be added
      */
     public void addItem(Item item){
-
+        for(Item ci: cartList){
+            if(ci.getName().equals(item.getName())) ci.increment();
+            return;
+        }
         cartList.add(item);
     }
 
@@ -38,17 +41,38 @@ public class Cart implements Serializable {
      * @param item to be updated
      * @param quantity amount to update
      */
-    public void updateQuantity(Item item, int quantity){
+    public boolean updateQuantity(Item item, int quantity){
+
         for(Item ci: cartList){
-            if(item.getName().equals(ci.getName())) ci.setQuantity(quantity);
+            if(ci.getName().equals(item.getName())){
+                ci.setQuantity(quantity);
+                return false;
+            }
         }
+        cartList.add(item);
+        return true;
+
+    }
+
+    public int search(String name) {
+
+        int i = 0;
+
+        for (Item ci : cartList) {
+            if(ci.getName().equals(name))
+                return i;
+        }
+
+            return 200;
     }
 
     public void printCart(){
 
         for(Item item: cartList)
-            System.out.println(item.getName() + "----" + item.getQuantity());
+            System.out.println(item.getName());
     }
+
+    public ArrayList<Item> getContents(){return cartList;}
 
     private ArrayList<Item> cartList;
 }

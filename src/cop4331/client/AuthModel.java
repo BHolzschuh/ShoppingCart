@@ -10,8 +10,11 @@ import java.util.Scanner;
 public class AuthModel {
 
     private Hashtable<String, User> readUsers;
+    private boolean vendorFlag;
 
     public AuthModel() {
+
+        vendorFlag = false;
 
         try {
 
@@ -29,6 +32,8 @@ public class AuthModel {
     public void getUsers() {
         System.out.println(readUsers);
     }
+
+    public boolean getVendorFlag(){ return vendorFlag; }
 
 
     public boolean findUser(String username) {
@@ -57,8 +62,9 @@ public class AuthModel {
         if(findUser(n) && pw.equals(readUsers.get(n).getPassword())) {
             if(readUsers.get(n).getClass().getSimpleName().equals("Shopper"))
                 return readUsers.get(n);
-            else
+            else if(readUsers.get(n).getClass().getSimpleName().equals("Vendor"))
                 System.out.println("vendor login detected");
+                vendorFlag = true;
         }
 
         return null;
