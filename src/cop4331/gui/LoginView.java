@@ -3,6 +3,9 @@ package cop4331.gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author Ben Shapiro
+ */
 public class LoginView {
 
     private JPanel loginPanel;

@@ -5,12 +5,18 @@ import cop4331.gui.Screen;
 import javax.swing.*;
 import java.util.ArrayList;
 
-
+/**
+ * @author Ben Shapiro
+ */
 public class ShopController {
 
     Inventory inv;
 
-
+    /**
+     * Constructs the shop controller
+     * @param sc screen
+     * @param usr current shopper
+     */
     ShopController(Screen sc, Shopper usr){
 
         inv = Inventory.getInstance();
@@ -58,6 +64,10 @@ public class ShopController {
 
     }
 
+    /**
+     * Prints the inventory list to the screen
+     * @return
+     */
     public String printInventory(){
         return inv.getInventoryList().toString();
     }
