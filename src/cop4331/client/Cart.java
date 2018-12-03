@@ -21,10 +21,7 @@ public class Cart implements Serializable {
      * @param item to be added
      */
     public void addItem(Item item){
-        for(Item ci: cartList){
-            if(ci.getName().equals(item.getName())) ci.increment();
-            return;
-        }
+
         cartList.add(item);
     }
 
@@ -50,7 +47,7 @@ public class Cart implements Serializable {
     public void printCart(){
 
         for(Item item: cartList)
-            System.out.println(item.getName());
+            System.out.println(item.getName() + "----" + item.getQuantity());
     }
 
     private ArrayList<Item> cartList;
