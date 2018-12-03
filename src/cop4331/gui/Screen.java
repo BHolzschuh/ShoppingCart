@@ -1,7 +1,5 @@
 package cop4331.gui;
 
-import cop4331.client.Inventory;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

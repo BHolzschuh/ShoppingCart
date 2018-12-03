@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * @author Brian Holzschuh
+ * @author Brian Holzschuh, Ben Shapiro
  * Stores a list of products in the users cart
  */
 public class Cart implements Serializable {
@@ -54,6 +54,11 @@ public class Cart implements Serializable {
 
     }
 
+    /**
+     * Searches the cart for an item
+     * @param name item name
+     * @return whether item is found or not
+     */
     public int search(String name) {
 
         int i = 0;
@@ -66,6 +71,9 @@ public class Cart implements Serializable {
             return 200;
     }
 
+    /**
+     * Prints the contents of the cart
+     */
     public void printCart(){
 
         for(Item item: cartList)

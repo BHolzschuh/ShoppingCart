@@ -12,6 +12,9 @@ public class AuthModel {
     private Hashtable<String, User> readUsers;
     private boolean vendorFlag;
 
+    /**
+     * Constructs the model
+     */
     public AuthModel() {
 
         vendorFlag = false;
@@ -28,20 +31,35 @@ public class AuthModel {
         }
     }
 
-
+    /**
+     * Prints the users in the system
+     */
     public void getUsers() {
         System.out.println(readUsers);
     }
 
+    /**
+     * Determines if the user is a vendor
+     * @return if vendor or not
+     */
     public boolean getVendorFlag(){ return vendorFlag; }
 
 
+    /**
+     * Determines if a user is in the system
+     * @param username unique username
+     * @return whether or not in system
+     */
     public boolean findUser(String username) {
         if (readUsers.containsKey(username)) return true;
         return false;
     }
 
-
+    /**
+     * Registers a user in the system
+     * @param name username
+     * @param pw password
+     */
     public void registerShopper(String name, String pw) {
 
         Shopper customer = new Shopper(name, pw);
@@ -57,6 +75,12 @@ public class AuthModel {
 
     }
 
+    /**
+     * Authenticates a user in the system
+     * @param n username
+     * @param pw password
+     * @return whether or not they are a user
+     */
     public User authenticate(String n, String pw) {
 
         if(findUser(n) && pw.equals(readUsers.get(n).getPassword())) {

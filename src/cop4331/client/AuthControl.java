@@ -2,6 +2,10 @@ package cop4331.client;
 
 import cop4331.gui.Screen;
 
+/**
+ * @author Ben Shapiro
+ * Handles authentication interactions
+ */
 public class AuthControl {
 
 
