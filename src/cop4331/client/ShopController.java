@@ -21,16 +21,19 @@ public class ShopController {
 
             int i = 0;
             for (JTextField j : sc.getQuantityUpdate()){
-                if (j.getText() != "0") {
+                System.out.println(j.getText());
+                if (!j.getText().equals("0")) {
                     usr.getCart().addItem(inv.getInventoryList().get(i));
-                    usr.getCart().updateQuantity(inv.getInventoryList().get(i),3);
-
+                    usr.getCart().updateQuantity(inv.getInventoryList().get(i),Integer.parseInt(j.getText()));
+                    sc.getCartItemName().add(new JLabel(inv.getInventoryList().get(i).getName()));
+                    sc.getCartItemQuantity().add(new JLabel(j.getText()));
                 }
             i++;
 
         }
 
         usr.getCart().printCart();
+            sc.fillCart();
         });
 
         for(int i = 0; i < inv.getInventorySize(); i++){

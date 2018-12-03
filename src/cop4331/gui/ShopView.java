@@ -9,10 +9,13 @@ public class ShopView {
 
     private JPanel shopPanel = new JPanel();
     private JPanel itemPanel = new JPanel();
+    private JPanel cartPanel = new JPanel();
     private GridBagConstraints gridC = new GridBagConstraints();
     private ArrayList<JLabel> itemNames;
     private ArrayList<JLabel> itemPrice;
     private ArrayList<JLabel> itemQuantity;
+    private ArrayList<JLabel> cartItemName;
+    private ArrayList<JLabel> cartItemQuantity;
     private ArrayList<JTextField> getQuantities;
 
     //  private ArrayList<JButton> addButtons;
@@ -25,6 +28,7 @@ public class ShopView {
         shopPanel.setLayout(new BorderLayout());
         GridBagLayout gl = new GridBagLayout();
         itemPanel.setLayout(gl);
+        cartPanel.setLayout(gl);
         gridC.fill = GridBagConstraints.HORIZONTAL;
         gridC.insets = new Insets(7,7,7,7);
 
@@ -41,15 +45,24 @@ public class ShopView {
         checkOut.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
         checkOut.setOpaque(true);
 
-        addItem(new JLabel("Please make a selection:"),0,0);
+        addItem(itemPanel,new JLabel("Please make a selection:"),0,0);
 
-        addItem(new JLabel("Item"),0,2);
-        addItem(new JLabel("Cost"),1,2);
-        addItem(new JLabel("Quantity"),2,2);
-        addItem(new JLabel("In Stock"),3,2);
+        addItem(itemPanel,new JLabel("Item"),0,2);
+        addItem(itemPanel,new JLabel("Cost"),1,2);
+        addItem(itemPanel,new JLabel("Quantity"),2,2);
+        addItem(itemPanel,new JLabel("In Stock"),3,2);
+
+        cartItemName = new ArrayList<>();
+        cartItemQuantity = new ArrayList<>();
+
+        addItem(cartPanel,new JLabel("Item"),5,0);
+        addItem(cartPanel,new JLabel("Quantity"),6,0);
+        
+        cartPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         shopPanel.add(title,BorderLayout.NORTH);
         shopPanel.add(itemPanel,BorderLayout.CENTER);
+        shopPanel.add(cartPanel,BorderLayout.EAST);
         shopPanel.add(checkOut,BorderLayout.SOUTH);
 
     }
@@ -59,47 +72,59 @@ public class ShopView {
         itemPanel.revalidate();
     }
 
+    public void fillCart(){
+
+        int i = 1;
+        for(JLabel j: cartItemName){
+            addItem(cartPanel,j,5,i);
+            i++;
+        }
+
+        i = 1;
+        for(JLabel j: cartItemQuantity){
+            addItem(cartPanel,j,6,i);
+            i++;
+        }
+    }
+
+
     public void populate(){
-
-
 
         int i = 3;
         for(JLabel j: itemNames){
             getQuantities.add(new JTextField("0"));
-            addItem(j,0,i);
+            addItem(itemPanel,j,0,i);
             i++;
         }
 
         i = 3;
         for(JLabel j: itemPrice){
-            addItem(j,1,i);
+            addItem(itemPanel,j,1,i);
             i++;
         }
 
         i = 3;
         for(JLabel j: itemQuantity){
-            addItem(j,3,i);
+            addItem(itemPanel,j,3,i);
             i++;
         }
 
-
-        addItem(update,2,i);
+        addItem(itemPanel,update,2,i);
 
         i = 3;
         for(JTextField t: getQuantities){
 
-            addItem(t,2,i);
+            addItem(itemPanel,t,2,i);
             i++;
         }
-
 
     }
 
 
-    private void addItem(JComponent j, int x, int y){
+    private void addItem(JPanel panel, JComponent j, int x, int y){
         gridC.gridx = x;
         gridC.gridy = y;
-        itemPanel.add(j,gridC);
+        panel.add(j,gridC);
     }
 
 
@@ -109,6 +134,8 @@ public class ShopView {
     public ArrayList<JLabel> getItemPrice(){ return itemPrice; }
     public ArrayList<JLabel> getItemQuantity(){ return itemQuantity; }
     public ArrayList<JTextField> getQuantities(){ return getQuantities; }
+    public ArrayList<JLabel> getCartItemName(){ return cartItemName; }
+    public ArrayList<JLabel> getCartItemQuantity(){ return cartItemQuantity; }
     public JButton updateQuantity(){ return update; }
 
 }
