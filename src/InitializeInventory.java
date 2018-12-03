@@ -30,6 +30,10 @@ public class InitializeInventory{
             out2.writeObject(inventory);
             out2.close();
 
+            ObjectOutputStream out3 = new ObjectOutputStream(new FileOutputStream("report.dat"));
+            out3.writeObject(inventory);
+            out3.close();
+
             System.out.println("Everything is initialized!");
 
         } catch (Exception e){

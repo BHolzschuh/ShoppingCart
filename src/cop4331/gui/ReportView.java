@@ -3,6 +3,9 @@ package cop4331.gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author Brian Holzschuh
+ */
 public class ReportView {
 
     private JPanel reportPanel;

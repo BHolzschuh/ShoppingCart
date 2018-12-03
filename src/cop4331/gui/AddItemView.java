@@ -4,6 +4,9 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+/**
+ * @author Brian Holzschuh
+ */
 public class AddItemView {
 
     private JPanel addItemPanel;

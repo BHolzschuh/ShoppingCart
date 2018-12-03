@@ -3,6 +3,7 @@ package cop4331.client;
 import cop4331.gui.Screen;
 
 import javax.swing.*;
+import java.text.DecimalFormat;
 
 /**
  * @author Brian Holzschuh
@@ -11,16 +12,27 @@ public class VendorController {
 
     private Screen sc;
     private Inventory inventory;
+    private Report report;
 
     public VendorController(Screen sc){
         this.sc = sc;
         inventory = Inventory.getInstance();
+        report = Report.getInstance();
 
         // Inventory add item button
         sc.getInventoryAddButton().addActionListener(e -> sc.showAddItemWindow());
 
         // Inventory report button
-        sc.getInventoryReportButton().addActionListener(e -> sc.showReportWindow());
+        sc.getInventoryReportButton().addActionListener(e -> {
+            DecimalFormat df = new DecimalFormat("#.##");
+            String cost = "$" + df.format(report.getCost());
+            String profit = "$" + df.format(report.getProfits());
+            String revenue = "$" + df.format(report.getRevenue());
+            sc.getReportCosts().setText(cost);
+            sc.getReportProfits().setText(profit);
+            sc.getReportRevenue().setText(revenue);
+            sc.showReportWindow();
+        });
 
         // Inventory update button
         sc.getInventoryUpdateButton().addActionListener(e -> {
