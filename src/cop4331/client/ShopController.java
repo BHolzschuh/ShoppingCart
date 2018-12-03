@@ -11,12 +11,27 @@ public class ShopController {
     Inventory inv;
 
 
-    ShopController(Screen sc){
+    ShopController(Screen sc, Shopper usr){
 
         inv = Inventory.getInstance();
 
         System.out.println(printInventory());
-       // sc.getInventoryLabel().setText("" + inv.getInventoryList().size());
+
+        sc.addRequest().addActionListener(e -> {
+
+            int i = 0;
+            for (JTextField j : sc.getQuantityUpdate()){
+                if (j.getText() != "0") {
+                    usr.getCart().addItem(inv.getInventoryList().get(i));
+                    usr.getCart().updateQuantity(inv.getInventoryList().get(i),3);
+
+                }
+            i++;
+
+        }
+
+        usr.getCart().printCart();
+        });
 
         for(int i = 0; i < inv.getInventorySize(); i++){
 
@@ -28,8 +43,6 @@ public class ShopController {
         }
 
         sc.loadDisplay();
-        
-        System.out.println(sc.getItemNames().get(3).getText());
 
 
     }

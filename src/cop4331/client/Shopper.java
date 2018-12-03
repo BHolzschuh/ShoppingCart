@@ -8,6 +8,8 @@ public class Shopper extends User{
         cart = new Cart();
     }
 
+    public Cart getCart(){ return cart; }
+
     private Cart cart;
 
 }

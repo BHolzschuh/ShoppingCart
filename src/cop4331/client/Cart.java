@@ -47,5 +47,11 @@ public class Cart implements Serializable {
         }
     }
 
+    public void printCart(){
+
+        for(Item item: cartList)
+            System.out.println(item.getName());
+    }
+
     private ArrayList<Item> cartList;
 }

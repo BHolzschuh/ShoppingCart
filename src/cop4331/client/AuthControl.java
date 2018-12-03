@@ -16,8 +16,8 @@ public class AuthControl {
         //login
         sc.getLoginButton().addActionListener(e -> {
             au.getUsers();
-            if (au.authenticate(sc.getLoginUserForm().getText().toLowerCase(),sc.getLoginPwdForm().getText())) {
-                ShopController newSession = new ShopController(sc);
+            if (au.authenticate(sc.getLoginUserForm().getText().toLowerCase(),sc.getLoginPwdForm().getText()) != null) {
+                ShopController newSession = new ShopController(sc,(Shopper) au.authenticate(sc.getLoginUserForm().getText().toLowerCase(),sc.getLoginPwdForm().getText()));
                 sc.showShop();
             }
         });

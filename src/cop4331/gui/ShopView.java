@@ -13,6 +13,9 @@ public class ShopView {
     private ArrayList<JLabel> itemNames;
     private ArrayList<JLabel> itemPrice;
     private ArrayList<JLabel> itemQuantity;
+    private ArrayList<JTextField> getQuantities;
+
+    //  private ArrayList<JButton> addButtons;
     private JButton update;
     private JButton checkOut;
 
@@ -30,8 +33,9 @@ public class ShopView {
         itemNames = new ArrayList<>();
         itemPrice = new ArrayList<>();
         itemQuantity = new ArrayList<>();
+        getQuantities = new ArrayList<>();
 
-        update = new JButton("update");
+        update = new JButton("add");
         checkOut = new JButton("Check Out Cart");
         checkOut.setBackground(Color.green);
         checkOut.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
@@ -57,8 +61,11 @@ public class ShopView {
 
     public void populate(){
 
+
+
         int i = 3;
         for(JLabel j: itemNames){
+            getQuantities.add(new JTextField("0"));
             addItem(j,0,i);
             i++;
         }
@@ -75,13 +82,14 @@ public class ShopView {
             i++;
         }
 
-        addItem(new JButton("add"),2,i);
 
+        addItem(update,2,i);
 
+        i = 3;
+        for(JTextField t: getQuantities){
 
-        while(i>2){
-            addItem(new JTextField("0"),2,i);
-            i--;
+            addItem(t,2,i);
+            i++;
         }
 
 
@@ -100,5 +108,7 @@ public class ShopView {
     public ArrayList<JLabel> getItemNames(){ return itemNames; }
     public ArrayList<JLabel> getItemPrice(){ return itemPrice; }
     public ArrayList<JLabel> getItemQuantity(){ return itemQuantity; }
+    public ArrayList<JTextField> getQuantities(){ return getQuantities; }
+    public JButton updateQuantity(){ return update; }
 
 }
