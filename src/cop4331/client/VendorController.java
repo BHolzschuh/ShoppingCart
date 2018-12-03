@@ -14,6 +14,10 @@ public class VendorController {
     private Inventory inventory;
     private Report report;
 
+    /**
+     * @author Brian Holzschuh
+     * @param sc 
+     */
     public VendorController(Screen sc){
         this.sc = sc;
         inventory = Inventory.getInstance();
