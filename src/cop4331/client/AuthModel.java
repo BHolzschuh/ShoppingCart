@@ -52,27 +52,17 @@ public class AuthModel {
 
     }
 
-    public boolean authenticate(String n, String pw) {return findUser(n) && pw.equals(readUsers.get(n).getPassword()); }
+    public User authenticate(String n, String pw) {
 
-}
-
-/*
-    public void register(String name, String pw ){
-
-        Customer registerer = new Customer(name,(pw.hashCode()*7)%100000);
-
-        try {
-            PrintWriter out = new PrintWriter("customers.txt");
-            out.write(name + " " + (pw.hashCode()*7)%100000);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-
+        if(findUser(n) && pw.equals(readUsers.get(n).getPassword())) {
+            if(readUsers.get(n).getClass().getSimpleName().equals("Shopper"))
+                return readUsers.get(n);
+            else
+                System.out.println("vendor login detected");
         }
 
-        customers.add(registerer);
+        return null;
 
     }
 
-    */
-
-
+}

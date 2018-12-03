@@ -134,6 +134,8 @@ public class Screen {
     public ArrayList<JLabel> getItemNames(){ return shopView.getItemNames(); }
     public ArrayList<JLabel> getItemPrice(){ return shopView.getItemPrice(); }
     public ArrayList<JLabel> getItemQuantity(){ return shopView.getItemQuantity(); }
+    public ArrayList<JTextField> getQuantityUpdate(){ return shopView.getQuantities(); }
+    public JButton addRequest(){ return shopView.updateQuantity(); }
     public void loadDisplay() {
         shopView.load();
         mainFrame.pack();
