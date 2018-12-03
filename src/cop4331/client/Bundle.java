@@ -9,15 +9,17 @@ import java.util.Arrays;
  */
 public class Bundle implements Item {
 
+    /**
+     * Constructs a bundled item
+     * @param ID unique ID
+     * @param quantity total amount
+     * @param items
+     */
     public Bundle(int ID, int quantity, Item...items) {
         this.ID = ID;
         this.items = new ArrayList<>();
         this.items.addAll(Arrays.asList(items));
         this.quantity = quantity;
-    }
-
-    public void add(Item...items) {
-        this.items.addAll(Arrays.asList(items));
     }
 
     @Override
