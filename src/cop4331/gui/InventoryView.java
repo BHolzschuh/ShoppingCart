@@ -115,7 +115,7 @@ public class InventoryView {
     public void deleteRefresh(int index){
         quantityFields.remove(index);
         deleteButtons.remove(index);
-        invList.remove(index);
+        invList.remove(index + 1);
         vendorPanel.revalidate();
     }
 
@@ -152,9 +152,6 @@ public class InventoryView {
 
         c.gridx = 4;
         JButton deleteButton = new JButton("X");
-        deleteButton.setBackground(Color.RED);
-        deleteButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
-        deleteButton.setOpaque(true);
         row.add(deleteButton, c);
         deleteButtons.add(deleteButton);
 
